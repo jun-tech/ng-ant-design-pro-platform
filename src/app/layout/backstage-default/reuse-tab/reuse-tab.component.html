@@ -1,0 +1,18 @@
+<ul nz-menu [nzMode]="'horizontal'" class="bst-tab" id="__tab">
+    <li nz-menu-item *ngFor="let tabItem of tabItemShowList;let i=index;" class="bst-tab-item" (mouseover)="showClose('__tabItemShow',i)" (mouseout)="hideClose('__tabItemShow',i)">
+        {{tabItem.title}}
+        <i nz-icon type="close" id="{{'__tabItemShow'+i}}" class="bst-tab-item-close" theme="outline" (click)="closeTab()"></i>
+    </li>
+</ul>
+
+<nz-dropdown [nzTrigger]="'click'" style="float:right;padding:0 12px;" *ngIf="isCollapsedTab">
+    <a nz-dropdown>
+        <i nz-icon type="menu-fold"></i>
+    </a>
+    <ul nz-menu>
+        <li nz-menu-item *ngFor="let tabItem of tabItemCollapsedList;let i=index;" class="bst-tab-item-collapsed" (mouseover)="showClose('__tabItemCollapsed',i)" (mouseout)="hideClose('__tabItemCollapsed',i)">
+            {{tabItem.title}}
+            <i nz-icon type="close" id="{{'__tabItemCollapsed'+i}}" class="bst-tab-item-close" theme="outline" (click)="closeTab()"></i>
+        </li>
+    </ul>
+</nz-dropdown>

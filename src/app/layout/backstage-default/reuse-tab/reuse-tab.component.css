@@ -1,0 +1,19 @@
+.bst-tab {
+    float: left;
+    margin-top: 0;
+    line-height: 63px;
+}
+
+.bst-tab-item {
+    min-width: 96px;
+    max-width: 96px;
+}
+
+.bst-tab-item-collapsed {
+    min-width: 138px;
+    max-width: 138px;
+}
+
+.bst-tab-item-close {
+    display: none;
+}

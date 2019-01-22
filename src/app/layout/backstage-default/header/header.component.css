@@ -1,0 +1,7 @@
+.bst-header-icon {
+    cursor: pointer;
+    padding: 0 12px;
+    display: inline-block;
+    transition: all .3s;
+    height: 100%;
+}
