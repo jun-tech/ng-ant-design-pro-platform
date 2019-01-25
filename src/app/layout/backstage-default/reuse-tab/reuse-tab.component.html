@@ -1,5 +1,5 @@
 <ul nz-menu [nzMode]="'horizontal'" class="bst-tab" id="__tab">
-    <li nz-menu-item *ngFor="let tabItem of tabItemShowList;let i=index;" class="bst-tab-item" (mouseover)="showClose('__tabItemShow',i)" (mouseout)="hideClose('__tabItemShow',i)">
+    <li nz-menu-item *ngFor="let tabItem of tabItemShowList;let i=index;" [nzSelected]="i === currentIndex" class="bst-tab-item" (click)="nzSelectChange($event,i)" (mouseover)="showClose('__tabItemShow',i)" (mouseout)="hideClose('__tabItemShow',i)">
         {{tabItem.title}}
         <i nz-icon type="close" id="{{'__tabItemShow'+i}}" class="bst-tab-item-close" theme="outline" (click)="closeTab()"></i>
     </li>

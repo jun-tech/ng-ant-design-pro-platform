@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { SimpleReuseStrategy } from 'src/app/serivces/core/simple-reuse-strategy';
 import { filter, map, mergeMap, take } from 'rxjs/operators';
 import { fromEvent, from } from 'rxjs';
+import { NzMenuItemDirective } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-reuse-tab',
@@ -32,6 +33,9 @@ export class ReuseTabComponent implements OnInit {
    */
   sidebarWidth: 256;
 
+  /**
+   * tab改变时发送回值给外部使用
+   */
   @Output() changeTabSize: EventEmitter<number> = new EventEmitter();
 
   /**
@@ -93,43 +97,45 @@ export class ReuseTabComponent implements OnInit {
 
 
   getMenuList(): void {
-    let tabItem = { title: '用户管理', module: '/user', power: '', isSelect: true };
+    let tabItem = { title: '工作台', module: '/system/home', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '日志管理', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '用户管理', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '数据字典', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '日志管理', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '部门管理', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '数据字典', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '流程设计', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '部门管理', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '流程定义', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '流程设计', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '系统参数', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '流程定义', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '系统监控', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '系统参数', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '系统监控', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '系统监控', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控1', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '系统监控', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控2', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '实例监控1', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控3', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '实例监控2', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控4', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '实例监控3', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控5', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '实例监控4', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控6', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '实例监控5', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控7', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '实例监控6', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控8', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '实例监控7', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控9', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '实例监控8', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控10', module: '/user', power: '', isSelect: true };
+    tabItem = { title: '实例监控9', module: '/system/user-list', power: '', isSelect: true };
+    this.tabItemList.push(tabItem);
+    tabItem = { title: '实例监控10', module: '/system/user-list', power: '', isSelect: true };
     this.tabItemList.push(tabItem);
   }
 
@@ -176,10 +182,10 @@ export class ReuseTabComponent implements OnInit {
     const winWidth = document.body.offsetWidth;
     this.sidebarWidth = sw !== undefined ? sw : 256;
     const sidebarCollapsedWidth = 68;
-    const headerWidth = 115;
+    const headerWidth = 180;
     const menuDrapDownWidth = 38; // 折叠tab
     const tabItemWidth = 96;
-    const tabMaxWidth = winWidth - this.sidebarWidth - sidebarCollapsedWidth - headerWidth;
+    const tabMaxWidth = winWidth - this.sidebarWidth - sidebarCollapsedWidth - headerWidth - 2; // 这里扣多2像素，貌似有些浏览器有问题
     this.tabRealWidth = tabMaxWidth - menuDrapDownWidth; // tab的实际容器宽度
     this.hst.nativeElement.style.width = tabMaxWidth + 'px'; // 重设宿主组件的宽度
     this.changeTabSize.emit(tabMaxWidth); // 向外发送计算好的值事件
@@ -203,8 +209,8 @@ export class ReuseTabComponent implements OnInit {
   /**
   * tab发生改变
   */
-  nzSelectChange($event: any): void {
-    this.currentIndex = $event.index;
+  nzSelectChange(ev: any, index: number): void {
+    this.currentIndex = index;
     const menu = this.tabItemList[this.currentIndex];
     // 跳转路由
     this.router.navigate([menu.module]);

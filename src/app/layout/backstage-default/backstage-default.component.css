@@ -22,3 +22,14 @@
     cursor: pointer;
     float: left;
 }
+
+.bst-menu-trigger:hover {
+    background-color: rgba(0, 0, 0, .025);
+}
+
+.bst-sider-menu {
+    min-height: 100vh;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, .35);
+    position: relative;
+    z-index: 10;
+}

@@ -1,5 +1,5 @@
 <nz-layout class="full-screen">
-    <nz-sider [nzWidth]="sidebarWidth" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate" id="__siderbar">
+    <nz-sider [nzWidth]="sidebarWidth" class="bst-sider-menu" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate" id="__siderbar">
         <app-sidebar [(isCollapsed)]="isCollapsed"></app-sidebar>
     </nz-sider>
     <nz-layout>
@@ -7,7 +7,7 @@
             <i class="bst-menu-trigger" nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" (click)="collapsedTrigger()"></i>
             <!--[tabRealWidth]="tabWidth"-->
             <app-reuse-tab style="float:left;" #reuseTab id="__reuseTab" (changeTabSize)="tabSize($event)"></app-reuse-tab>
-            <app-header style="float:right;width:115px"></app-header>
+            <app-header style="float:right;width:180px"></app-header>
         </nz-header>
         <nz-content style="margin:24px;">
             <router-outlet></router-outlet>

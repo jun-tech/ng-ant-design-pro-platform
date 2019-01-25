@@ -1,4 +1,4 @@
-.sider-menu-index-logo {
+.bst-sider-menu-index-logo {
     height: 64px;
     position: relative;
     line-height: 64px;
@@ -9,13 +9,13 @@
     margin-bottom: 20px
 }
 
-.sider-menu-index-logo img {
+.bst-sider-menu-index-logo img {
     display: inline-block;
     vertical-align: middle;
     height: 32px
 }
 
-.sider-menu-index-logo h1 {
+.bst-sider-menu-index-logo h1 {
     color: #fff;
     display: inline-block;
     vertical-align: middle;

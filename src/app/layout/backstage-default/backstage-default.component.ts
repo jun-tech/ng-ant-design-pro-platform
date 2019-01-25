@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, ViewChild, TemplateRef } from '@angular/core';
 import { ReuseTabComponent } from './reuse-tab/reuse-tab.component';
+import { fromEvent } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-backstage-default',
@@ -32,6 +34,7 @@ export class BackstageDefaultComponent {
       this.reuseTab.tabResize(this.sidebarWidth);
       document.getElementById('__reuseTab').style.display = '';
     }, 200); // 这里的200毫秒指左侧栏收缩时间动画，表示收缩-展开后才触发重用
+
   }
 
   tabSize(n: number): void {

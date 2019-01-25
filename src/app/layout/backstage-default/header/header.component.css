@@ -4,4 +4,13 @@
     display: inline-block;
     transition: all .3s;
     height: 100%;
+    font-size: 16px;
+}
+
+.bst-header-icon:hover {
+    background-color: rgba(0, 0, 0, .025);
+}
+
+.bst-badge {
+    padding: 8px 2px;
 }

@@ -1,5 +1,12 @@
 <div>
-    <i nz-icon type="search" theme="outline" class="bst-header-icon"></i>
-    <i nz-icon type="question-circle" theme="outline" class="bst-header-icon"></i>
-    <i nz-icon type="bell" theme="outline" class="bst-header-icon"></i>
+    <span class="bst-header-icon">
+        <i nz-icon type="search" theme="outline"></i>
+    </span>
+    <span class="bst-header-icon"><i nz-icon type="question-circle" theme="outline"></i></span>
+    <span class="bst-header-icon">
+        <nz-badge [nzCount]="11" class="bst-badge">
+            <i nz-icon type="bell" theme="outline"></i>
+        </nz-badge>
+    </span>
+    <span class="bst-header-icon"><i nz-icon type="user" theme="outline"></i></span>
 </div>
