@@ -5,22 +5,19 @@
         <h1>Ant Design Pro</h1>
     </a>
 </div>
+
 <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
-    <li nz-submenu>
-        <span title><i nz-icon type="user"></i><span class="nav-text">User</span></span>
-        <ul>
-            <li nz-menu-item>Tom</li>
-            <li nz-menu-item>Bill</li>
-            <li nz-menu-item>Alex</li>
-        </ul>
-    </li>
-    <li nz-submenu>
-        <span title><i nz-icon type="team"></i><span class="nav-text">Team</span></span>
-        <ul>
-            <li nz-menu-item>Team 1</li>
-            <li nz-menu-item>Team 2</li>
-        </ul>
-    </li>
-    <li nz-menu-item><span><i nz-icon type="file"></i><span class="nav-text">File</span></span>
-    </li>
+    <ng-template ngFor let-menuItem [ngForOf]="menuResource" let-i="index">
+        <li nz-submenu *ngIf="menuItem.children.length > 0">
+            <span title><i nz-icon type="{{menuItem.icon}}" theme="outline"></i><span class="nav-text">{{menuItem.label}}</span></span>
+            <ul *ngFor="let menuItem of menuItem.children;">
+                <li nz-menu-item routerLink="{{menuItem.module}}">
+                    {{menuItem.label}}
+                </li>
+            </ul>
+        </li>
+        <li nz-menu-item *ngIf="menuItem.children.length === 0" routerLink="{{menuItem.module}}">
+            <span title><i nz-icon type="{{menuItem.icon}}" theme="outline"></i><span class="nav-text">{{menuItem.label}}</span></span>
+        </li>
+    </ng-template>
 </ul>

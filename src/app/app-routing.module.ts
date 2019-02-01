@@ -10,7 +10,7 @@ const routes: Routes = [
   // 前台模块（无权限验证）
   {
     path: 'frontstage',
-    loadChildren: './pages/frontstage/frontstage.module#FrontStageModule'
+    loadChildren: './pages/frontstage/frontstage.module#FrontStageModule',
   },
   // 系统模块
   {

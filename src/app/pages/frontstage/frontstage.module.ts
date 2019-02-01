@@ -5,7 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { LocalStorageService } from 'src/app/serivces/core/local-storage.service';
+import { LocalStorageService } from 'src/app/services/core/local-storage.service';
 
 @NgModule({
   imports: [

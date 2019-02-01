@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, Renderer, Input, EventEmitter, ViewChildren } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { SimpleReuseStrategy } from 'src/app/serivces/core/simple-reuse-strategy';
 import { filter, map, mergeMap, take } from 'rxjs/operators';
 import { fromEvent, from } from 'rxjs';
 import { NzMenuItemDirective } from 'ng-zorro-antd';
+import { SimpleReuseStrategy } from 'src/app/services/core/simple-reuse-strategy';
+import { PlatformCoreService } from 'src/app/services/core/platform-core.service';
+import { MenuItem } from 'src/app/modes/core/menuItem';
 
 @Component({
   selector: 'app-reuse-tab',
@@ -58,13 +60,14 @@ export class ReuseTabComponent implements OnInit {
    */
   isCollapsedTab: boolean;
 
+  menuList = [];
+
   constructor(
     private hst: ElementRef,
+    private platformCoreService: PlatformCoreService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title) {
-
-    this.getMenuList();
 
     this.router.events.pipe(filter(event => event instanceof NavigationEnd))
       .pipe(map(() => this.activatedRoute))
@@ -77,69 +80,23 @@ export class ReuseTabComponent implements OnInit {
       .pipe(filter(route => route.outlet === 'primary'))
       .pipe(mergeMap(route => route.data))
       .subscribe(event => {
-        const title = event['title'];
-        const module = event['module'];
-        this.tabItemList.forEach(p => p.isSelect = false);
-        const menu = { title: title, module: event['module'], power: event['power'], isSelect: true };
-        this.titleService.setTitle(title);
-        const exitMenu = this.tabItemList.find(info => info.title != null && info.title === title);
-        if (exitMenu) { // 如果存在不添加，当前表示选中
-          this.tabItemList.forEach(p => p.isSelect = p.title === title);
-          return;
+        // 路由data的标题
+        const menu = {...event};
+        menu.url = this.router.url;
+        const url = menu.url;
+        this.titleService.setTitle(menu.title); // 设置网页标题
+        const exitMenu = this.menuList.find(info => info.url === url);
+        if (!exitMenu) {// 如果不存在那么不添加，
+          this.menuList.push(menu);
+          this.tabItemList.push({ title: menu.title, module: url, power: '', isSelect: true });
+          this.tabResize();
         }
-        if (menu.title != null) {
-          this.tabItemList.push(menu);
-        }
-        this.currentIndex = this.tabItemList.findIndex(p => p.module === module);
+        this.currentIndex = this.menuList.findIndex(p => p.url === url);
       });
 
   }
 
-
-  getMenuList(): void {
-    let tabItem = { title: '工作台', module: '/system/home', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '用户管理', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '日志管理', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '数据字典', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '部门管理', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '流程设计', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '流程定义', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '系统参数', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '系统监控', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '系统监控', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控1', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控2', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控3', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控4', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控5', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控6', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控7', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控8', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控9', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-    tabItem = { title: '实例监控10', module: '/system/user-list', power: '', isSelect: true };
-    this.tabItemList.push(tabItem);
-  }
-
-  // // 关闭选项标签
+  // 关闭选项标签
   closeTab(module: string, isSelect: boolean): void {
     // 当前关闭的是第几个路由
     const index = this.tabItemList.findIndex(p => p.module === module);

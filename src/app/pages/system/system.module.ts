@@ -5,6 +5,7 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { UserInfoComponent } from './user/user-info/user-info.component';
 import { HomeComponent } from './home/home.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { LogListComponent } from './log/log-list/log-list.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
     NgZorroAntdModule,
     SystemRoutingModule
   ],
-  declarations: [UserListComponent, UserInfoComponent, HomeComponent]
+  declarations: [UserListComponent, UserInfoComponent, HomeComponent, LogListComponent]
 })
 export class SystemModule { }

@@ -16,9 +16,9 @@ import { HeaderComponent } from './layout/backstage-default/header/header.compon
 import { SidebarComponent } from './layout/backstage-default/sidebar/sidebar.component';
 import { ReuseTabComponent } from './layout/backstage-default/reuse-tab/reuse-tab.component';
 import { RouteReuseStrategy } from '@angular/router';
-import { SimpleReuseStrategy } from './serivces/core/simple-reuse-strategy';
 import { ErrorsRoutingModule } from './pages/errors/errors-routing.module';
 import { FooterComponent } from './layout/backstage-default/footer/footer.component';
+import { SimpleReuseStrategy } from './services/core/simple-reuse-strategy';
 
 registerLocaleData(en);
 

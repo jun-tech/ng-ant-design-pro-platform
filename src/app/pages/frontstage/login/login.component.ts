@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from 'src/app/serivces/core/local-storage.service';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/core/local-storage.service';
 
 @Component({
   selector: 'app-login',
