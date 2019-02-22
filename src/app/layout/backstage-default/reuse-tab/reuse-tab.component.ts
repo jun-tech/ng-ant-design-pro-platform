@@ -1,12 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, Renderer, Input, EventEmitter, ViewChildren } from '@angular/core';
+import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap, take } from 'rxjs/operators';
-import { fromEvent, from } from 'rxjs';
-import { NzMenuItemDirective } from 'ng-zorro-antd';
-import { SimpleReuseStrategy } from 'src/app/services/core/simple-reuse-strategy';
+import { fromEvent } from 'rxjs';
 import { PlatformCoreService } from 'src/app/services/core/platform-core.service';
-import { MenuItem } from 'src/app/modes/core/menuItem';
+import { AppReuseStrategy } from 'src/app/services/core/app-reuse-strategy';
 
 @Component({
   selector: 'app-reuse-tab',
@@ -60,14 +58,16 @@ export class ReuseTabComponent implements OnInit {
    */
   isCollapsedTab: boolean;
 
-  menuList = [];
-
   constructor(
     private hst: ElementRef,
     private platformCoreService: PlatformCoreService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title) {
+
+    // 首页设置
+    const firstUrl: { title: string, module: string, power: string, isSelect: boolean } = this.platformCoreService.getDesktop();
+    this.tabItemList.push(firstUrl);
 
     this.router.events.pipe(filter(event => event instanceof NavigationEnd))
       .pipe(map(() => this.activatedRoute))
@@ -79,48 +79,45 @@ export class ReuseTabComponent implements OnInit {
       }))
       .pipe(filter(route => route.outlet === 'primary'))
       .pipe(mergeMap(route => route.data))
-      .subscribe(event => {
+      .subscribe(routeData => {
         // 路由data的标题
-        const menu = {...event};
-        menu.url = this.router.url;
-        const url = menu.url;
-        this.titleService.setTitle(menu.title); // 设置网页标题
-        const exitMenu = this.menuList.find(info => info.url === url);
-        if (!exitMenu) {// 如果不存在那么不添加，
-          this.menuList.push(menu);
-          this.tabItemList.push({ title: menu.title, module: url, power: '', isSelect: true });
+        const url = this.router.url;
+        this.titleService.setTitle(routeData.title); // 设置网页标题
+        const exitMenu = this.tabItemList.find(p => p.module === url);
+        if (!exitMenu) { // 缓存路由不存在添加
+          this.tabItemList.push({ title: routeData.title, module: url, power: '', isSelect: true });
           this.tabResize();
         }
-        this.currentIndex = this.menuList.findIndex(p => p.url === url);
+        // 设置选中
+        this.tabItemList.forEach(p => p.isSelect = p.module === url);
+        this.currentIndex = this.tabItemList.findIndex(p => p.module === url);
       });
-
   }
 
   // 关闭选项标签
-  closeTab(module: string, isSelect: boolean): void {
+  closeTab(module: string, isSelect: boolean, event: Event): void {
+    event.preventDefault();
     // 当前关闭的是第几个路由
     const index = this.tabItemList.findIndex(p => p.module === module);
-    // 如果只有一个不可以关闭
+    // 只有一个不可以删
     if (this.tabItemList.length === 1) { return; }
-
-    this.tabItemList = this.tabItemList.filter(p => p.module !== module);
     // 删除复用
-    delete SimpleReuseStrategy.handlers[module];
+    delete AppReuseStrategy.deleteRouteSnapshot[module];
     if (!isSelect) { return; }
-    // 显示上一个选中
-    let menu = this.tabItemList[index - 1];
-    if (!menu) {// 如果上一个没有下一个选中
-      menu = this.tabItemList[index + 1];
+    // 关闭当前显示后一个
+    let menu = this.tabItemList[index + 1];
+    if (!menu) {// 若上一个没有，显示下一个
+      menu = this.tabItemList[index - 1];
     }
-    // console.log(menu);
-    // console.log(this.menuList);
+    // 设置选中并重新生成tabItemList
     this.tabItemList.forEach(p => p.isSelect = p.module === menu.module);
+    this.tabItemList = this.tabItemList.filter(p => p.module !== module);
     // 显示当前路由信息
     this.router.navigate(['/' + menu.module]);
+    this.tabResize();
   }
 
   ngOnInit() {
-    console.log('menulist size:' + this.tabItemList.length);
     fromEvent(window, 'resize')
       .subscribe((event: any) => {
         // 操作
@@ -177,6 +174,7 @@ export class ReuseTabComponent implements OnInit {
    * 显示关闭
    */
   showClose(tabItem: string, i: number): void {
+    if (i === 0) { return; }// 第一个不允许删除
     this.currentOverIndex = i;
     document.getElementById(tabItem + i).style.display = 'inline-block';
   }

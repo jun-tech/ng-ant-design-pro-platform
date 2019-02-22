@@ -1,7 +1,7 @@
 <ul nz-menu [nzMode]="'horizontal'" class="bst-tab" id="__tab">
-    <li nz-menu-item *ngFor="let tabItem of tabItemShowList;let i=index;" [nzSelected]="i === currentIndex" class="bst-tab-item" (click)="nzSelectChange($event,i)" (mouseover)="showClose('__tabItemShow',i)" (mouseout)="hideClose('__tabItemShow',i)">
+    <li nz-menu-item *ngFor="let tabItem of tabItemShowList;let i=index;" [nzSelected]="tabItem.isSelect" class="bst-tab-item" (click)="nzSelectChange($event,i)" (mouseover)="showClose('__tabItemShow',i)" (mouseout)="hideClose('__tabItemShow',i)">
         {{tabItem.title}}
-        <i nz-icon type="close" id="{{'__tabItemShow'+i}}" class="bst-tab-item-close" theme="outline" (click)="closeTab()"></i>
+        <i nz-icon type="close" id="{{'__tabItemShow'+i}}" class="bst-tab-item-close" theme="outline" (click)="closeTab(tabItem.module,true,$event)"></i>
     </li>
 </ul>
 
@@ -12,7 +12,7 @@
     <ul nz-menu>
         <li nz-menu-item *ngFor="let tabItem of tabItemCollapsedList;let i=index;" class="bst-tab-item-collapsed" (mouseover)="showClose('__tabItemCollapsed',i)" (mouseout)="hideClose('__tabItemCollapsed',i)">
             {{tabItem.title}}
-            <i nz-icon type="close" id="{{'__tabItemCollapsed'+i}}" class="bst-tab-item-close" theme="outline" (click)="closeTab()"></i>
+            <i nz-icon type="close" id="{{'__tabItemCollapsed'+i}}" class="bst-tab-item-close" theme="outline" (click)="closeTab(tabItem.module,true,$event)"></i>
         </li>
     </ul>
 </nz-dropdown>
