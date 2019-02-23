@@ -11,7 +11,7 @@ import { AppReuseStrategy } from 'src/app/services/core/app-reuse-strategy';
   templateUrl: './reuse-tab.component.html',
   styleUrls: ['./reuse-tab.component.css']
 })
-export class ReuseTabComponent implements OnInit {
+export class ReuseTabComponent {
 
   /**
    * 当前选中的tab
@@ -86,7 +86,7 @@ export class ReuseTabComponent implements OnInit {
         const exitMenu = this.tabItemList.find(p => p.module === url);
         if (!exitMenu) { // 缓存路由不存在添加
           this.tabItemList.push({ title: routeData.title, module: url, power: '', isSelect: true });
-          this.tabResize();
+          this.tabResize(this.sidebarWidth);
         }
         // 设置选中
         this.tabItemList.forEach(p => p.isSelect = p.module === url);
@@ -114,16 +114,6 @@ export class ReuseTabComponent implements OnInit {
     this.tabItemList = this.tabItemList.filter(p => p.module !== module);
     // 显示当前路由信息
     this.router.navigate(['/' + menu.module]);
-    this.tabResize();
-  }
-
-  ngOnInit() {
-    fromEvent(window, 'resize')
-      .subscribe((event: any) => {
-        // 操作
-        console.log('页面变化了');
-        this.tabResize(this.sidebarWidth);
-      });
     this.tabResize(this.sidebarWidth);
   }
 
@@ -160,12 +150,16 @@ export class ReuseTabComponent implements OnInit {
     }
   }
 
-  /**
-  * tab发生改变
-  */
-  nzSelectChange(ev: any, index: number): void {
+  tabItemShowSelect(ev: any, index: number): void {
     this.currentIndex = index;
-    const menu = this.tabItemList[this.currentIndex];
+    const menu = this.tabItemShowList[this.currentIndex];
+    // 跳转路由
+    this.router.navigate([menu.module]);
+  }
+
+  tabItemCollapsedSelect(ev: any, index: number): void {
+    this.currentIndex = index;
+    const menu = this.tabItemCollapsedList[this.currentIndex];
     // 跳转路由
     this.router.navigate([menu.module]);
   }
@@ -174,7 +168,7 @@ export class ReuseTabComponent implements OnInit {
    * 显示关闭
    */
   showClose(tabItem: string, i: number): void {
-    if (i === 0) { return; }// 第一个不允许删除
+    if (i === 0 && tabItem === '__tabItemShow') { return; }// 第一个不允许删除
     this.currentOverIndex = i;
     document.getElementById(tabItem + i).style.display = 'inline-block';
   }

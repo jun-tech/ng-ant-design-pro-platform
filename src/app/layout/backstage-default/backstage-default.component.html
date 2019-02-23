@@ -1,5 +1,5 @@
 <nz-layout class="full-screen">
-    <nz-sider [nzWidth]="sidebarWidth" class="bst-sider-menu" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate" id="__siderbar">
+    <nz-sider [nzWidth]="sidebarWidth" class="bst-sider-menu" [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate" id="__siderbar">
         <app-sidebar [(isCollapsed)]="isCollapsed"></app-sidebar>
     </nz-sider>
     <nz-layout>
@@ -10,7 +10,8 @@
             <app-header style="float:right;width:180px"></app-header>
         </nz-header>
         <nz-content style="margin:24px;">
-            <router-outlet></router-outlet>
+            <router-outlet>
+            </router-outlet>
         </nz-content>
         <nz-footer style="text-align: center;">
             <app-footer></app-footer>

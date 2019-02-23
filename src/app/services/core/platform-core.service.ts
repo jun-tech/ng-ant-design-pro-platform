@@ -44,16 +44,16 @@ export class PlatformCoreService {
     tabItemList.push(tabItem);
 
      // 常用统计
-    // tabItem = new MenuItem();
-    // tabItem.label = '常用统计';
-    // tabItem.icon = 'area-chart';
-    // tabItem.isGroup = true;
+    tabItem = new MenuItem();
+    tabItem.label = '常用统计';
+    tabItem.icon = 'area-chart';
+    tabItem.isGroup = true;
 
-    // subTabItem = new MenuItem();
-    // subTabItem.label = '用户管理';
-    // subTabItem.module = '/system/user-list';
-    // tabItem.children.push(subTabItem);
-    // tabItemList.push(tabItem);
+    subTabItem = new MenuItem();
+    subTabItem.label = '饼图';
+    subTabItem.module = '/backstage/examples/chart-pipe';
+    tabItem.children.push(subTabItem);
+    tabItemList.push(tabItem);
 
     tabItem = new MenuItem();
     tabItem.label = '系统管理';

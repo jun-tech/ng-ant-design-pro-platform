@@ -4,9 +4,9 @@ import { BackstageDefaultComponent } from './layout/backstage-default/backstage-
 import { ErrorUnkonwComponent } from './pages/commons/errors/error-unkonw/error-unkonw.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/frontstage/login', pathMatch: 'full' },
+  // { path: '', redirectTo: '/frontstage/login', pathMatch: 'full' },
   // 默认页
-  // { path: '', redirectTo: '/system/user-list', pathMatch: 'full' },
+  { path: '', redirectTo: '/backstage/system/home', pathMatch: 'full' },
   // 前台模块（无权限验证）
   {
     path: 'frontstage',

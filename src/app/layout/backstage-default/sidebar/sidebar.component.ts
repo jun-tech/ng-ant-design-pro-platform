@@ -27,4 +27,17 @@ export class SidebarComponent implements OnInit {
     this.menuResource = this.platformCoreService.getMenuResource();
   }
 
+  // 是否选中菜单
+  isSelected(module: string): boolean {
+    const u = this.router.url;
+    return module === u;
+  }
+
+  // 是否展开菜单
+  isOpen(menuItems: MenuItem[]): boolean {
+    const u = this.router.url;
+    const foucusMenu = menuItems.find(menuItem => menuItem.module === u);
+    const isOpen = foucusMenu != null ? true : false;
+    return isOpen;
+  }
 }
