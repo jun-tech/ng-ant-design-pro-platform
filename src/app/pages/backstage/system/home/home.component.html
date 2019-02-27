@@ -1,5 +1,104 @@
-<nz-card style="width:300px;" nzTitle="Card title">
-    <p>Card content</p>
-    <p>Card content</p>
-    <p>Card content</p>
-</nz-card>
+<div nz-row [nzGutter]="24">
+    <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
+        <app-g2-card [title]="title1" total="¥ 126,560" contentHeight="46px" [action]="action1" [footer]="footer1">
+            <ng-template #title1>
+                总销售额
+            </ng-template>
+            <ng-template #action1>
+                <nz-tooltip [nzTitle]="'指标说明'">
+                    <i nz-tooltip nz-icon type="info-circle"></i>
+                </nz-tooltip>
+            </ng-template>
+            <div style="position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;">
+                <app-trend flag="up" style="margin-right: 16px;">
+                    周同比
+                    <span class="pl-sm">12%</span>
+                </app-trend>
+                <app-trend flag="down">
+                    日同比
+                    <span class="pl-sm">11%</span>
+                </app-trend>
+            </div>
+            <ng-template #footer1>
+                <p class="text-truncate mb0">
+                    日销售额
+                    <span class="ml-sm">￥12,423</span>
+                </p>
+            </ng-template>
+        </app-g2-card>
+    </div>
+    <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
+        <app-g2-card [title]="title2" total="¥ 126,560" contentHeight="46px" [action]="action2" [footer]="footer2">
+            <ng-template #title2>
+                总销售额
+            </ng-template>
+            <ng-template #action2>
+                <nz-tooltip [nzTitle]="'指标说明'">
+                    <i nz-tooltip nz-icon type="info-circle"></i>
+                </nz-tooltip>
+            </ng-template>
+            <app-g2-mini-area *ngIf="data.visitData" color="#975FE4" height="46" [data]="data.visitData"></app-g2-mini-area>
+            <ng-template #footer2>
+                <p class="text-truncate mb0">
+                    日销售额
+                    <span class="ml-sm">￥12,423</span>
+                </p>
+            </ng-template>
+        </app-g2-card>
+    </div>
+    <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
+        <app-g2-card [title]="title3" total="¥ 126,560" contentHeight="46px" [action]="action3" [footer]="footer3">
+            <ng-template #title3>
+                总销售额
+            </ng-template>
+            <ng-template #action3>
+                <nz-tooltip [nzTitle]="'指标说明'">
+                    <i nz-tooltip nz-icon type="info-circle"></i>
+                </nz-tooltip>
+            </ng-template>
+            <app-trend flag="up" style="display:block; margin-top:2px;">
+                周同比
+                <span class="pl-sm">12%</span>
+            </app-trend>
+            <app-trend flag="down">
+                日同比
+                <span class="pl-sm">11%</span>
+            </app-trend>
+            <ng-template #footer3>
+                <p class="text-truncate mb0">
+                    日销售额
+                    <span class="ml-sm">￥12,423</span>
+                </p>
+            </ng-template>
+        </app-g2-card>
+    </div>
+    <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
+        <app-g2-card [title]="title4" total="¥ 126,560" contentHeight="46px" [action]="action4" [footer]="footer4">
+            <ng-template #title4>
+                总销售额
+            </ng-template>
+            <ng-template #action4>
+                <nz-tooltip [nzTitle]="'指标说明'">
+                    <i nz-tooltip nz-icon type="info-circle"></i>
+                </nz-tooltip>
+            </ng-template>
+            <app-trend flag="up" style="display:block; margin-top:2px;">
+                周同比
+                <span class="pl-sm">12%</span>
+            </app-trend>
+            <app-trend flag="down">
+                日同比
+                <span class="pl-sm">11%</span>
+            </app-trend>
+            <ng-template #footer4>
+                <p class="text-truncate mb0">
+                    日销售额
+                    <span class="ml-sm">￥12,423</span>
+                </p>
+            </ng-template>
+        </app-g2-card>
+    </div>
+</div>

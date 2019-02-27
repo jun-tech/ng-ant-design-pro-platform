@@ -1,0 +1,22 @@
+.bst-tab {
+    float: left;
+    margin-top: 0;
+    line-height: 62px;
+}
+
+.bst-tab-item {
+    min-width: 96px;
+    max-width: 96px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.bst-tab-item-collapsed {
+    min-width: 138px;
+    max-width: 138px;
+    vertical-align: middle;
+}
+
+.bst-tab-item-close {
+    display: none;
+}

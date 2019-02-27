@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BackstageDefaultComponent } from './layout/backstage-default/backstage-default.component';
-import { ErrorUnkonwComponent } from './pages/commons/errors/error-unkonw/error-unkonw.component';
+import { BackstageDefaultComponent } from './layouts/backstage-default/backstage-default.component';
+import { RouterGuardService } from './services/core/router-guard.service';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/frontstage/login', pathMatch: 'full' },
-  // 默认页
-  { path: '', redirectTo: '/backstage/system/home', pathMatch: 'full' },
-  // 前台模块（无权限验证）
+  // 前台模块
   {
     path: 'frontstage',
     loadChildren: './pages/frontstage/frontstage.module#FrontStageModule',
   },
+  // 帐户登录、注册、找回密码等界面
   {
-    path: 'backstage',
+    path: 'account',
+    loadChildren: './pages/account/account.module#AccountModule',
+  },
+  // 后台模块
+  {
+    path: '',
     component: BackstageDefaultComponent,
+    canActivate: [RouterGuardService],
     children: [
+      { path: '', redirectTo: 'system/home', pathMatch: 'full' },
       {
         path: 'examples',
         loadChildren: './pages/backstage/examples/examples.module#ExamplesModule'
@@ -23,20 +28,12 @@ const routes: Routes = [
       {
         path: 'system',
         loadChildren: './pages/backstage/system/system.module#SystemModule'
-      }
+      },
+      { path: 'exception', loadChildren: './pages/commons/exception/exception.module#ExceptionModule' },
     ]
   },
-  // // 例子模块
-  // {
-  //   path: 'examples', component: BackstageDefaultComponent,
-  //   loadChildren: './pages/examples/examples.module#ExamplesModule'
-  // },
-  // // 系统模块
-  // {
-  //   path: 'system', component: BackstageDefaultComponent,
-  //   loadChildren: './pages/system/system.module#SystemModule'
-  // },
-  { path: '**', component: ErrorUnkonwComponent }
+  // Exception
+  { path: '**', redirectTo: 'exception/404' }
 ];
 
 @NgModule({

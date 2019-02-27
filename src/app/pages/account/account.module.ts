@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FrontStageRoutingModule } from './frontstage-routing.module';
+import { LoginComponent } from './login/login.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LocalStorageService } from 'src/app/services/core/local-storage.service';
+import { AccountRoutingModule } from './account-routing.module';
 
 @NgModule({
   imports: [
@@ -12,9 +13,9 @@ import { LocalStorageService } from 'src/app/services/core/local-storage.service
     FormsModule,
     HttpClientModule,
     NgZorroAntdModule,
-    FrontStageRoutingModule
+    AccountRoutingModule
   ],
-  declarations: [],
+  declarations: [LoginComponent],
   providers: [LocalStorageService]
 })
-export class FrontStageModule { }
+export class AccountModule { }

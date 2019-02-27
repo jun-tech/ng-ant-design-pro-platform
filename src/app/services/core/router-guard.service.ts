@@ -13,7 +13,7 @@ export class RouterGuardService implements CanActivate {
     const username = this.store.get('username');
     console.log('username:' + username);
     if (!username) {
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/account/login');
       return false;
     }
     return true;

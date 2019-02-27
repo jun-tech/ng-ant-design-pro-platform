@@ -1,0 +1,46 @@
+
+@trend-prefix: ~'.trend';
+
+@{trend-prefix} {
+  display: inline-block;
+ // font-size: @font-size-base;
+ font-size: 14px;
+  line-height: 22px;
+  &__up,
+  &__down {
+    margin-left: 4px;
+    position: relative;
+    top: 1px;
+    i {
+      font-size: 12px;
+      transform: scale(0.83);
+    }
+  }
+  &__up {
+    // color: @red-6;
+    color: red;
+  }
+  &__down {
+    // color: @green-6;
+    color: green;
+    top: -1px;
+  }
+  &__grey {
+    @{trend-prefix}__up,
+    @{trend-prefix}__down {
+ //     color: @text-color;
+      color: rgba(0,0,0,.65);
+    }
+  }
+  &__reverse {
+    @{trend-prefix}__up {
+//      color: @green-6;
+color: green;
+
+    }
+    @{trend-prefix}__down {
+ //     color: @red-6;
+ color: red;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MenuItem } from 'src/app/modes/core/menuItem';
+import { MenuItem } from 'src/app/models/core/menuItem';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class PlatformCoreService {
    * 获取桌面
    */
   getDesktop(): { title: string, module: string, power: string, isSelect: boolean } {
-    const tabItem = { title: '工作桌面', module: '/backstage/system/home', power: '', isSelect: true };
+    const tabItem = { title: '工作桌面', module: '/system/home', power: '', isSelect: true };
     return tabItem;
   }
 
@@ -23,7 +23,7 @@ export class PlatformCoreService {
     const tabItemList: Array<MenuItem> = [];
     let tabItem = new MenuItem();
     tabItem.label = '工作桌面';
-    tabItem.module = '/backstage/system/home';
+    tabItem.module = '/system/home';
     tabItem.icon = 'home';
     tabItemList.push(tabItem);
 
@@ -34,12 +34,12 @@ export class PlatformCoreService {
     // 常用统计
     let subTabItem = new MenuItem();
     subTabItem.label = '查询列表';
-    subTabItem.module = '/backstage/examples/list-search';
+    subTabItem.module = '/examples/list/list-search';
     tabItem.children.push(subTabItem);
 
     subTabItem = new MenuItem();
     subTabItem.label = '标准列表';
-    subTabItem.module = '/backstage/examples/basic-list';
+    subTabItem.module = '/examples/list/basic-list';
     tabItem.children.push(subTabItem);
     tabItemList.push(tabItem);
 
@@ -51,7 +51,7 @@ export class PlatformCoreService {
 
     subTabItem = new MenuItem();
     subTabItem.label = '饼图';
-    subTabItem.module = '/backstage/examples/chart-pipe';
+    subTabItem.module = '/examples/chart/chart-pipe';
     tabItem.children.push(subTabItem);
     tabItemList.push(tabItem);
 
@@ -62,7 +62,7 @@ export class PlatformCoreService {
     // 系统下级-用户管理
     subTabItem = new MenuItem();
     subTabItem.label = '用户管理';
-    subTabItem.module = '/backstage/system/user-list';
+    subTabItem.module = '/system/user/user-list';
     tabItem.children.push(subTabItem);
 
     // subTabItem = new MenuItem();
@@ -72,7 +72,7 @@ export class PlatformCoreService {
 
     subTabItem = new MenuItem();
     subTabItem.label = '审计日志';
-    subTabItem.module = '/backstage/system/log-list';
+    subTabItem.module = '/system/log/log-list';
     tabItem.children.push(subTabItem);
 
     tabItemList.push(tabItem);
