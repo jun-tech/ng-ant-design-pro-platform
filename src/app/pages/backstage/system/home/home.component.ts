@@ -9,42 +9,44 @@ export class HomeComponent implements OnInit {
 
   loading = true;
 
-  data: any = {};
+  data = {};
 
   constructor() { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.loading = false;
-    }, 2000);
     this.data['visitData'] = [{
       x: '2019-02-19',
-      y: 10
+      y: 60
     }, {
       x: '2019-02-20',
-      y: 14
+      y: 90
     }, {
       x: '2019-02-21',
       y: 15
     }, {
       x: '2019-02-22',
-      y: 14
+      y: 20
     }, {
       x: '2019-02-23',
-      y: 13
+      y: 30
     }, {
       x: '2019-02-24',
-      y: 18
+      y: 50
     }, {
       x: '2019-02-25',
       y: 30
     }, {
       x: '2019-02-26',
-      y: 20
+      y: 100
     }, {
       x: '2019-02-27',
       y: 70
     }];
+
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
+
   }
 
 }

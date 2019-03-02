@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as G2 from '@antv/g2';
+// import * as G2 from '@antv/g2';
+declare var G2: any;
 
 @Component({
   selector: 'app-user-list',
@@ -11,7 +12,6 @@ export class UserListComponent implements OnInit {
   title = 'app';
   data = {};
   chart;
-  graph;
   constructor() { }
 
   ngOnInit() {
@@ -19,23 +19,35 @@ export class UserListComponent implements OnInit {
   }
 
   chartData() {
-    this.data = [
-      { genre: 'Sports', sold: 275 },
-      { genre: 'Strategy', sold: 115 },
-      { genre: 'Action', sold: 120 },
-      { genre: 'Shooter', sold: 350 },
-      { genre: 'Other', sold: 150 }
-    ];
-    this.chart = new G2.Chart({
-      container: 'c1', // 指定图表容器 ID
-      width: 600, // 指定图表宽度
-      height: 300 // 指定图表高度
-    });
+    this.data['visitData'] = [{
+      x: '2019-02-19',
+      y: 60
+    }, {
+      x: '2019-02-20',
+      y: 90
+    }, {
+      x: '2019-02-21',
+      y: 15
+    }, {
+      x: '2019-02-22',
+      y: 20
+    }, {
+      x: '2019-02-23',
+      y: 30
+    }, {
+      x: '2019-02-24',
+      y: 50
+    }, {
+      x: '2019-02-25',
+      y: 30
+    }, {
+      x: '2019-02-26',
+      y: 100
+    }, {
+      x: '2019-02-27',
+      y: 70
+    }];
 
-    this.chart.source(this.data);
-    this.chart.interval().position('genre*sold').color('genre');
-    //  渲染图表
-    this.chart.render();
   }
 
 }

@@ -2,7 +2,8 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
 import { InputBoolean } from 'ng-zorro-antd';
 
 @Component({
-  selector: 'app-trend',
+  // tslint:disable-next-line:component-selector
+  selector: 'trend',
   templateUrl: './trend.component.html',
   styleUrls: ['./trend.component.less'],
   // host: {

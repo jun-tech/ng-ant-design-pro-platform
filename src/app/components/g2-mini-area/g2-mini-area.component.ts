@@ -7,10 +7,11 @@ import {
   OnChanges,
   OnDestroy,
   OnInit,
+  HostBinding,
 } from '@angular/core';
 
 declare var G2: any;
-// import * as G2 from '@antv/g2';
+declare var DataSet: any;
 
 export interface G2MiniAreaData {
   x: any;
@@ -19,11 +20,14 @@ export interface G2MiniAreaData {
 }
 
 @Component({
-  selector: 'app-g2-mini-area',
+  // tslint:disable-next-line:component-selector
+  selector: 'g2-mini-area',
   template: ``,
+  styleUrls: ['./g2-mini-area.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MiniAreaComponent implements OnInit, OnChanges, OnDestroy {
+export class G2MiniAreaComponent implements OnInit, OnChanges, OnDestroy {
+
   private chart: any;
 
   // #region fields
@@ -32,7 +36,7 @@ export class MiniAreaComponent implements OnInit, OnChanges, OnDestroy {
   @Input() color = 'rgba(24, 144, 255, 0.2)';
   @Input() borderColor = '#1890FF';
   @Input() borderWidth = 2;
-  @Input() height = 56;
+  @Input() @HostBinding('style.height.px') height = 56;
   @Input() fit = true;
   @Input() line = false;
   @Input() animate = true;

@@ -2,7 +2,8 @@ import { Component, OnInit, Input, OnChanges, TemplateRef, ChangeDetectorRef } f
 import { InputBoolean } from 'ng-zorro-antd';
 
 @Component({
-  selector: 'app-g2-card',
+  // tslint:disable-next-line:component-selector
+  selector: 'g2-card',
   templateUrl: './g2-card.component.html',
   styleUrls: ['./g2-card.component.less']
 })
@@ -13,6 +14,7 @@ export class G2CardComponent implements OnChanges {
   @Input() title: string | TemplateRef<void>;
   @Input() action: string | TemplateRef<void>;
   @Input() total = '';
+  @Input() contentClass = '';
   _height = 'auto';
   _orgHeight: number | string;
   @Input()
