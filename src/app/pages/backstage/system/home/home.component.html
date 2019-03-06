@@ -1,6 +1,6 @@
 <div nz-row [nzGutter]="24">
     <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
-        <g2-card [title]="title1" total="¥ 126,560" contentHeight="46px" [action]="action1" [footer]="footer1" contentClass="g2-card__fixed">
+        <g2-card [loading]="loading" [title]="title1" total="¥ 126,560" contentHeight="44px" [action]="action1" [footer]="footer1" contentClass="g2-card__fixed">
             <ng-template #title1>
                 总销售额
             </ng-template>
@@ -26,7 +26,7 @@
         </g2-card>
     </div>
     <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
-        <g2-card [title]="title2" total="12,900" contentHeight="46px" [action]="action2" [footer]="footer2">
+        <g2-card [loading]="loading" [title]="title2" total="12,900" contentHeight="44px" [action]="action2" [footer]="footer2">
             <ng-template #title2>
                 访问量
             </ng-template>
@@ -45,7 +45,7 @@
         </g2-card>
     </div>
     <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
-        <g2-card [title]="title3" total="¥ 126,560" contentHeight="46px" [action]="action3" [footer]="footer3">
+        <g2-card [loading]="loading" [title]="title3" total="¥ 126,560" contentHeight="44px" [action]="action3" [footer]="footer3">
             <ng-template #title3>
                 支付笔数
             </ng-template>
@@ -64,7 +64,7 @@
         </g2-card>
     </div>
     <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
-        <g2-card [title]="title4" total="78%" contentHeight="46px" [action]="action4" [footer]="footer4">
+        <g2-card [loading]="loading" [title]="title4" total="78%" contentHeight="44px" [action]="action4" [footer]="footer4">
             <ng-template #title4>
                 总销售额
             </ng-template>
@@ -89,3 +89,7 @@
         </g2-card>
     </div>
 </div>
+
+<nz-card [nzLoading]="loading" [nzBordered]="false">
+
+</nz-card>
