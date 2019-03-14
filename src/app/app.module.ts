@@ -18,6 +18,7 @@ import { FooterComponent } from './layouts/backstage-default/footer/footer.compo
 import { AppReuseStrategy } from './services/core/app-reuse-strategy';
 import { RouterGuardService } from './services/core/router-guard.service';
 import { LocalStorageService } from './services/core/local-storage.service';
+import { SessionStorageService } from './services/core/session-storage.service';
 
 registerLocaleData(en);
 
@@ -32,6 +33,7 @@ const LAYOUT_COMPONENT = [
 // 权限认证
 const GUARD_SERVICE = [
   RouterGuardService,
+  SessionStorageService,
   LocalStorageService,
 ];
 

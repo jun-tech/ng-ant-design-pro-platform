@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 
-const ls = localStorage;
-// const ls = sessionStorage;
+const ls = sessionStorage;
 
 @Injectable()
-export class LocalStorageService {
+export class SessionStorageService {
   constructor() { }
 
   public get<T>(key: string): any {
