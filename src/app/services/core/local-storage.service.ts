@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 const ls = localStorage;
-// const ls = sessionStorage;
 
 @Injectable()
 export class LocalStorageService {

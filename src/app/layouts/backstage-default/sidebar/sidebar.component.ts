@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PlatformCoreService } from 'src/app/services/core/platform-core.service';
+import { PlatformCoreService } from 'src/app/services/platform/platform-core.service';
 import { Router } from '@angular/router';
 import { MenuItem } from 'src/app/models/core/menuItem';
 

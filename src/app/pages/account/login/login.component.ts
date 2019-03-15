@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LocalStorageService } from 'src/app/services/core/local-storage.service';
 import { Title } from '@angular/platform-browser';
+import { PlatformCoreService } from 'src/app/services/platform/platform-core.service';
+import { ServiceResult } from 'src/app/models/core/service-result';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +11,24 @@ import { Title } from '@angular/platform-browser';
 })
 export class LoginComponent implements OnInit {
 
-  username: string;
-  password: string;
+  username = 'admin';
+  password = '123456';
 
-  constructor(private store: LocalStorageService, private router: Router, private titleService: Title) { }
+  constructor(
+    private router: Router,
+    private titleService: Title,
+    private platformCoreService: PlatformCoreService) { }
 
   ngOnInit() {
     this.titleService.setTitle('登录'); // 设置网页标题
   }
 
   submitForm(): void {
-    this.store.set('username', this.username);
-    this.router.navigateByUrl('/system/home');
+    const { router } = this;
+    this.platformCoreService.login(function (sr: ServiceResult) {
+      if (sr.errorCode === 0) {
+        router.navigateByUrl('/system/home');
+      }
+    }, this.username, this.password, null);
   }
 }

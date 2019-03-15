@@ -16,9 +16,7 @@ import { ReuseTabComponent } from './layouts/backstage-default/reuse-tab/reuse-t
 import { RouteReuseStrategy } from '@angular/router';
 import { FooterComponent } from './layouts/backstage-default/footer/footer.component';
 import { AppReuseStrategy } from './services/core/app-reuse-strategy';
-import { RouterGuardService } from './services/core/router-guard.service';
-import { LocalStorageService } from './services/core/local-storage.service';
-import { SessionStorageService } from './services/core/session-storage.service';
+import { SharedCoreModule } from './services/core/shared-core-module';
 
 registerLocaleData(en);
 
@@ -27,21 +25,14 @@ const LAYOUT_COMPONENT = [
   BackstageDefaultComponent,
   HeaderComponent,
   SidebarComponent,
-  ReuseTabComponent
-];
-
-// 权限认证
-const GUARD_SERVICE = [
-  RouterGuardService,
-  SessionStorageService,
-  LocalStorageService,
+  ReuseTabComponent,
+  FooterComponent,
 ];
 
 @NgModule({
   declarations: [
-    ...LAYOUT_COMPONENT,
     AppComponent,
-    FooterComponent,
+    ...LAYOUT_COMPONENT
   ],
   imports: [
     BrowserModule,
@@ -49,10 +40,10 @@ const GUARD_SERVICE = [
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedCoreModule.forRoot()
   ],
   providers: [
-    ...GUARD_SERVICE,
     { provide: NZ_I18N, useValue: en_US },
     { provide: RouteReuseStrategy, useClass: AppReuseStrategy },
   ],
