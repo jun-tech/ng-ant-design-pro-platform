@@ -35,7 +35,7 @@
                     <i nz-tooltip nz-icon type="info-circle"></i>
                 </nz-tooltip>
             </ng-template>
-            <g2-mini-area *ngIf="data.visitData" color="#975FE4" height="46" [data]="data.visitData" class="g2-card__chartfixed"></g2-mini-area>
+            <g2-mini-area *ngIf="visitData" color="#975FE4" height="46" [data]="visitData" class="g2-card__chartfixed"></g2-mini-area>
             <ng-template #footer2>
                 <p class="text-truncate mb0">
                     日访问量
@@ -54,7 +54,7 @@
                     <i nz-tooltip nz-icon type="info-circle"></i>
                 </nz-tooltip>
             </ng-template>
-            <g2-mini-bar *ngIf="data.visitData" height="46" [data]="data.visitData" class="g2-card__chartfixed"></g2-mini-bar>
+            <g2-mini-bar *ngIf="visitData" height="46" [data]="visitData" class="g2-card__chartfixed"></g2-mini-bar>
             <ng-template #footer3>
                 <p class="text-truncate mb0">
                     转化率
@@ -64,7 +64,7 @@
         </g2-card>
     </div>
     <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
-        <g2-card [loading]="loading" [title]="title4" total="78%" contentHeight="44px" [action]="action4" [footer]="footer4">
+        <g2-card [loading]="loading" [title]="title4" total="{{totalSalePrecent}}%" contentHeight="44px" [action]="action4" [footer]="footer4">
             <ng-template #title4>
                 总销售额
             </ng-template>
@@ -73,7 +73,7 @@
                     <i nz-tooltip nz-icon type="info-circle"></i>
                 </nz-tooltip>
             </ng-template>
-            <g2-mini-progress height="46" percent="78" strokeWidth="8" target="80" color="#13C2C2" class="g2-card__chart-progressfixed"></g2-mini-progress>
+            <g2-mini-progress height="46" [percent]="totalSalePrecent" strokeWidth="8" target="80" color="#13C2C2" class="g2-card__chart-progressfixed"></g2-mini-progress>
             <ng-template #footer4>
                 <p class="text-truncate mb0">
                     <trend flag="up" style="margin-right: 16px;">

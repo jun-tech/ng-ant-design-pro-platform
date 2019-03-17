@@ -4,7 +4,6 @@ import { LoginComponent } from './login/login.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { LocalStorageService } from 'src/app/services/core/local-storage.service';
 import { AccountRoutingModule } from './account-routing.module';
 
 @NgModule({
@@ -16,6 +15,6 @@ import { AccountRoutingModule } from './account-routing.module';
     AccountRoutingModule
   ],
   declarations: [LoginComponent],
-  providers: [LocalStorageService]
+  providers: []
 })
 export class AccountModule { }

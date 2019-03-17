@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { fromEvent } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -9,42 +12,21 @@ export class HomeComponent implements OnInit {
 
   loading = true;
 
-  data = {};
+  visitData = {};
 
-  constructor() { }
+  totalSalePrecent = 0;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.data['visitData'] = [{
-        x: '2019-02-19',
-        y: 60
-      }, {
-        x: '2019-02-20',
-        y: 90
-      }, {
-        x: '2019-02-21',
-        y: 15
-      }, {
-        x: '2019-02-22',
-        y: 20
-      }, {
-        x: '2019-02-23',
-        y: 30
-      }, {
-        x: '2019-02-24',
-        y: 50
-      }, {
-        x: '2019-02-25',
-        y: 30
-      }, {
-        x: '2019-02-26',
-        y: 100
-      }, {
-        x: '2019-02-27',
-        y: 70
-      }];
+    this.http.post('charts/visitdata', null).pipe(delay(2000)).subscribe(res => {
+      this.visitData = res['data'];
       this.loading = false;
-    }, 2000);
+    });
+
+    this.http.post<number>('charts/totalSalePrecent', null).subscribe(res => {
+      this.totalSalePrecent = res;
+    });
 
   }
 

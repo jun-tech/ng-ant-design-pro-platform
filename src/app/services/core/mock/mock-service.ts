@@ -15,20 +15,22 @@ export class MockService {
     callMock(realUrl: string): any {
         const { _config, cached } = this;
         const data = _config.data;
-        Object.keys(data).forEach((key: string) => {
-            const funObj = data[key];
-            Object.keys(funObj).forEach((proxyUrl: string) => {
-                if (realUrl === proxyUrl) {
-                    const isCached = cached[proxyUrl];
-                    if (!isCached) {
-                        cached[proxyUrl] = funObj[proxyUrl];
-                        return;
-                    } else {
-                        return;
+        if (!cached[realUrl]) {
+            Object.keys(data).forEach((key: string) => {
+                const funObj = data[key];
+                Object.keys(funObj).forEach((proxyUrl: string) => {
+                    if (realUrl === proxyUrl) {
+                        const isCached = cached[proxyUrl];
+                        if (!isCached) {
+                            cached[proxyUrl] = funObj[proxyUrl];
+                            return;
+                        } else {
+                            return;
+                        }
                     }
-                }
+                });
             });
-        });
+        }
         const res = cached[realUrl].call(this);
         console.log(`%c👽POST->${realUrl}->request`, 'background:#000;color:#bada55', res);
         return res;

@@ -28,5 +28,12 @@ export class MockModule {
     };
   }
 
+  static forChild(): ModuleWithProviders {
+    return {
+      ngModule: MockModule,
+      providers: [{ provide: HTTP_INTERCEPTORS, useClass: MockInterceptorService, multi: true }],
+    };
+  }
+
 
 }

@@ -7,6 +7,7 @@ import { SessionStorageService } from './session-storage.service';
 import { LocalStorageService } from './local-storage.service';
 import { MockModule } from './mock/mock-module';
 import { HttpInterceptorService } from './http-core-interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // 模拟数据模块
 const MOCK_DATA_MODULE = environment.useMock ? [MockModule.forRoot({ data: MOCKDATA })] : [];
@@ -20,7 +21,7 @@ const GUARD_SERVICE_PROVIDES = [
 
 // 拦截器
 const INTERCEPTOR_SERVICE_PROVIDES = [
-  HttpInterceptorService
+  { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
 ];
 
 @NgModule({

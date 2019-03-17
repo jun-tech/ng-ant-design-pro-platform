@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { delay } from 'rxjs/operators';
 // import * as G2 from '@antv/g2';
 declare var G2: any;
 
@@ -10,44 +12,19 @@ declare var G2: any;
 export class UserListComponent implements OnInit {
 
   title = 'app';
-  data = {};
-  chart;
-  constructor() { }
+  version = '';
+  visitData = {};
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.chartData();
   }
 
   chartData() {
-    this.data['visitData'] = [{
-      x: '2019-02-19',
-      y: 60
-    }, {
-      x: '2019-02-20',
-      y: 90
-    }, {
-      x: '2019-02-21',
-      y: 15
-    }, {
-      x: '2019-02-22',
-      y: 20
-    }, {
-      x: '2019-02-23',
-      y: 30
-    }, {
-      x: '2019-02-24',
-      y: 50
-    }, {
-      x: '2019-02-25',
-      y: 30
-    }, {
-      x: '2019-02-26',
-      y: 100
-    }, {
-      x: '2019-02-27',
-      y: 70
-    }];
+
+    this.http.post('charts/visitdata', null).pipe(delay(2000)).subscribe(res => {
+      this.visitData = res['data'];
+    });
 
   }
-
 }
