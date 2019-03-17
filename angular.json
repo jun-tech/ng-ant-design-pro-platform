@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "angular-demo": {
+        "ng-ant-design-pro-platform": {
             "root": "",
             "sourceRoot": "src",
             "projectType": "application",
@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/angular-demo",
+                        "outputPath": "dist/ng-ant-design-pro-platform",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -65,18 +65,18 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "angular-demo:build"
+                        "browserTarget": "ng-ant-design-pro-platform:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "angular-demo:build:production"
+                            "browserTarget": "ng-ant-design-pro-platform:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "angular-demo:build"
+                        "browserTarget": "ng-ant-design-pro-platform:build"
                     }
                 },
                 "test": {
@@ -113,7 +113,7 @@
                 }
             }
         },
-        "angular-demo-e2e": {
+        "ng-ant-design-pro-platform-e2e": {
             "root": "e2e/",
             "projectType": "application",
             "prefix": "",
@@ -122,11 +122,11 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "angular-demo:serve"
+                        "devServerTarget": "ng-ant-design-pro-platform:serve"
                     },
                     "configurations": {
                         "production": {
-                            "devServerTarget": "angular-demo:serve:production"
+                            "devServerTarget": "ng-ant-design-pro-platform:serve:production"
                         }
                     }
                 },
@@ -142,5 +142,5 @@
             }
         }
     },
-    "defaultProject": "angular-demo"
+    "defaultProject": "ng-ant-design-pro-platform"
 }
