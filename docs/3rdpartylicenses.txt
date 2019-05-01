@@ -206,6 +206,11 @@ Apache-2.0
 
 undefined
 
+ng-zorro-antd/drawer
+
+ng-zorro-antd
+MIT
+
 @angular/cdk
 MIT
 The MIT License
@@ -231,14 +236,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-ng-zorro-antd
-MIT
-
-@ant-design/icons-angular
-MIT
+ng-zorro-antd/notification
 
 @angular/core
 MIT
+
+ng-zorro-antd/popconfirm
+
+ng-zorro-antd/modal
+
+ng-zorro-antd/dropdown
 
 ant-design-palettes
 MIT
@@ -246,8 +253,16 @@ MIT
 @angular/common
 MIT
 
+ng-zorro-antd/button
+
+ng-zorro-antd/message
+
 @angular/animations
 MIT
+
+ng-zorro-antd/tooltip
+
+ng-zorro-antd/popover
 
 @angular/router
 MIT
@@ -277,8 +292,6 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-@angular/cdk/scrolling
 
 @angular/forms
 MIT
@@ -367,6 +380,9 @@ If the Work includes a "NOTICE" text file as part of its distribution, then any 
 END OF TERMS AND CONDITIONS
 
 
+@ant-design/icons-angular
+MIT
+
 hammerjs
 MIT
 The MIT License (MIT)
@@ -392,6 +408,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+ng-zorro-antd/layout
+
+ng-zorro-antd/menu
+
+ng-zorro-antd/badge
+
 zone.js
 MIT
 The MIT License
@@ -415,3 +437,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+
+ng-zorro-antd/card
+
+ng-zorro-antd/spin
+
+ng-zorro-antd/tabs
