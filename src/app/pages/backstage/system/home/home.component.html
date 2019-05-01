@@ -11,16 +11,16 @@
             </ng-template>
             <trend flag="up" style="margin-right: 16px;">
                 周同比
-                <span class="pl-sm">12%</span>
+                <span>12%</span>
             </trend>
             <trend flag="down">
                 日同比
-                <span class="pl-sm">11%</span>
+                <span>11%</span>
             </trend>
             <ng-template #footer1>
-                <p class="text-truncate mb0">
+                <p class="w-overhide">
                     日销售额
-                    <span class="ml-sm">￥12,423</span>
+                    <span>￥12,423</span>
                 </p>
             </ng-template>
         </g2-card>
@@ -37,9 +37,9 @@
             </ng-template>
             <g2-mini-area *ngIf="visitData" color="#975FE4" height="46" [data]="visitData" class="g2-card__chartfixed"></g2-mini-area>
             <ng-template #footer2>
-                <p class="text-truncate mb0">
+                <p>
                     日访问量
-                    <span class="ml-sm">12,423</span>
+                    <span>12,423</span>
                 </p>
             </ng-template>
         </g2-card>
@@ -56,9 +56,9 @@
             </ng-template>
             <g2-mini-bar *ngIf="visitData" height="46" [data]="visitData" class="g2-card__chartfixed"></g2-mini-bar>
             <ng-template #footer3>
-                <p class="text-truncate mb0">
+                <p class="w-overhide">
                     转化率
-                    <span class="ml-sm">80%</span>
+                    <span>80%</span>
                 </p>
             </ng-template>
         </g2-card>
@@ -73,23 +73,41 @@
                     <i nz-tooltip nz-icon type="info-circle"></i>
                 </nz-tooltip>
             </ng-template>
-            <g2-mini-progress height="46" [percent]="totalSalePrecent" strokeWidth="8" target="80" color="#13C2C2" class="g2-card__chart-progressfixed"></g2-mini-progress>
+            <g2-mini-progress height="46" [percent]="totalSalePrecent" cls="g2-mini-progress g2-card__chart-progressfixed" strokeWidth="8" target="80" color="#13C2C2"></g2-mini-progress>
             <ng-template #footer4>
-                <p class="text-truncate mb0">
+                <p class="w-overhide">
                     <trend flag="up" style="margin-right: 16px;">
                         周同比
-                        <span class="pl-sm">12%</span>
+                        <span>12%</span>
                     </trend>
                     <trend flag="down">
                         日同比
-                        <span class="pl-sm">11%</span>
+                        <span>11%</span>
                     </trend>
                 </p>
             </ng-template>
         </g2-card>
     </div>
 </div>
-
-<nz-card [nzLoading]="loading" [nzBordered]="false">
-
+<nz-card [nzLoading]="loading2" [nzBordered]="false" [ngClass]="{'ant-card__body-nopadding':!loading}">
+    <nz-tabset nzSize="large" style="padding-left:16px;margin-bottom: 24px">
+        <nz-tab nzTitle="销售额">
+            <!-- 图表 -->
+            <div nz-row [nzGutter]="24">
+                <div nz-col nzXl="16" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+                    <div style="padding-left:32px">
+                        <h4><span>销售趋势</span></h4>
+                        <g2-mini-bar axis="true" *ngIf="!loading2" height="254" borderWidth="40" [padding]="[32,32,32,50]" [data]="saleTrendData">
+                        </g2-mini-bar>
+                    </div>
+                </div>
+                <div nz-col nzXl="8" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+                    右边
+                </div>
+            </div>
+        </nz-tab>
+        <nz-tab nzTitle="访问量">
+            Content of Tab Pane 2
+        </nz-tab>
+    </nz-tabset>
 </nz-card>

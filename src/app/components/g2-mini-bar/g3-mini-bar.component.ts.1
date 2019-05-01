@@ -45,14 +45,14 @@ export class G2MiniBarComponent implements OnInit, OnChanges, OnDestroy {
       height,
       padding,
     }));
-    chart.source([], {
-      x: {
-        type: 'cat',
-      },
-      y: {
-        min: 0,
-      },
-    });
+    // chart.source([], {
+    //   x: {
+    //     type: 'cat',
+    //   },
+    //   y: {
+    //     min: 0,
+    //   },
+    // });
     chart.legend(legend);
     chart.axis(axis);
     chart.tooltip({
@@ -70,7 +70,6 @@ export class G2MiniBarComponent implements OnInit, OnChanges, OnDestroy {
 
     chart.render();
     this.attachChart();
-
   }
 
   private attachChart() {
@@ -91,6 +90,7 @@ export class G2MiniBarComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(): void {
     this.ngZone.runOutsideAngular(() => this.attachChart());
+    // this.ngZone.runOutsideAngular(() => this.renderBar());
   }
 
   ngOnDestroy(): void {
@@ -98,4 +98,46 @@ export class G2MiniBarComponent implements OnInit, OnChanges, OnDestroy {
       this.ngZone.runOutsideAngular(() => this.chart.destroy());
     }
   }
+
+
+  private renderBar() {
+    var data = [{
+      year: '1951 年',
+      sales: 38
+    }, {
+      year: '1952 年',
+      sales: 52
+    }, {
+      year: '1956 年',
+      sales: 61
+    }, {
+      year: '1957 年',
+      sales: 145
+    }, {
+      year: '1958 年',
+      sales: 48
+    }, {
+      year: '1959 年',
+      sales: 38
+    }, {
+      year: '1960 年',
+      sales: 38
+    }, {
+      year: '1962 年',
+      sales: 38
+    }];
+    var chart = new G2.Chart({
+      container: this.el.nativeElement,
+      forceFit: true,
+      height: this.height,
+      // padding: this.padding
+    });
+    chart.source(data);
+    // chart.scale('sales', {
+    //   tickInterval: 20
+    // });
+    chart.interval().position('year*sales');
+    chart.render();
+  }
+
 }

@@ -13,7 +13,8 @@ export class G2MiniProgressComponent implements OnChanges {
   @Input() target: number;
   @Input() percent: number;
   @Input() strokeWidth: number;
-  constructor(private cdr: ChangeDetectorRef) {}
+  @Input() @HostBinding('class') cls = 'g2-mini-progress';
+  constructor(private cdr: ChangeDetectorRef) { }
 
   private fixNum(value: number) {
     return Math.min(Math.max(value, 0), 100);

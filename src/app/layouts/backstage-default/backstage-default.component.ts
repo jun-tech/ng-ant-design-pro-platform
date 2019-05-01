@@ -76,8 +76,8 @@ export class BackstageDefaultComponent implements OnInit, AfterViewInit {
       this.hst.nativeElement.querySelector('nz-sider').style.display = '';
       this.isCollapsed = true;
     } else {
-      this.hst.nativeElement.querySelector('nz-sider').style.display = '';
-      this.isCollapsed = false;
+      // this.hst.nativeElement.querySelector('nz-sider').style.display = '';
+      // this.isCollapsed = false;
     }
   }
 }

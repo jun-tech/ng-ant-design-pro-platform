@@ -5,13 +5,13 @@ export const CHARTS = {
 };
 
 export const CHARTS_VISIDATA = {
-    count: 0,
     'charts/visitdata': () => {
+        let month = 0;
         return Mock.mock({
             'data|25': [{
                 'x|+1': function () {
-                    CHARTS_VISIDATA.count++;
-                    return '2019-01-0' + CHARTS_VISIDATA.count;
+                    month++;
+                    return '2019-1-' + month;
                 },
                 'y': '@natural(10, 10000)'
             }],
@@ -19,5 +19,19 @@ export const CHARTS_VISIDATA = {
             'errorMsg': ''
         });
     },
-    'charts/totalSalePrecent': () => Mock.Random.natural(10, 100)
+    'charts/totalSalePrecent': () => Mock.Random.natural(10, 100),
+    'charts/saleTrend': () => {
+        let month = 0;
+        return Mock.mock({
+            'data|12': [{
+                'x|+1': function () {
+                    month++;
+                    return  month + '月';
+                },
+                'y': '@natural(10, 10000)'
+            }],
+            'errorCode': 0,
+            'errorMsg': ''
+        });
+    }
 };

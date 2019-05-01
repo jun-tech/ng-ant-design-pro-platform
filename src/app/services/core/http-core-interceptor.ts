@@ -69,20 +69,12 @@ export class HttpInterceptorService implements HttpInterceptor {
     // 每个请求附上token
     const localStorageService = this.injector.get(LocalStorageService);
     const accessToken = localStorageService.get('x-access-token');
-    if (accessToken) {
-      newReq = req.clone({
-        setHeaders: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-          'x-access-token': accessToken
-        }
-      });
-    } else {
-      newReq = req.clone({
-        setHeaders: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        }
-      });
-    }
+    newReq = req.clone({
+      setHeaders: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'x-access-token': accessToken ? accessToken : ''
+      }
+    });
     // 转交处理
     return next.handle(newReq).pipe(
       mergeMap((event: any) => {

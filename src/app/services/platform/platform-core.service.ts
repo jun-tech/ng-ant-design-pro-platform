@@ -59,28 +59,6 @@ export class PlatformCoreService {
     tabItem.children.push(subTabItem);
     tabItemList.push(tabItem);
 
-    tabItem = new MenuItem();
-    tabItem.label = '系统管理';
-    tabItem.icon = 'setting';
-    tabItem.isGroup = true;
-    // 系统下级-用户管理
-    subTabItem = new MenuItem();
-    subTabItem.label = '用户管理';
-    subTabItem.module = '/system/user/user-list';
-    tabItem.children.push(subTabItem);
-
-    // subTabItem = new MenuItem();
-    // subTabItem.label = '部门管理';
-    // subTabItem.module = '/system/home';
-    // tabItem.children.push(subTabItem);
-
-    subTabItem = new MenuItem();
-    subTabItem.label = '审计日志';
-    subTabItem.module = '/system/log/log-list';
-    tabItem.children.push(subTabItem);
-
-    tabItemList.push(tabItem);
-
     return tabItemList;
   }
 
