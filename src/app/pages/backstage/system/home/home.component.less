@@ -1,8 +1,8 @@
 :host ::ng-deep {
     .ant-card {
-        margin-bottom: 16px;
-        color: rgba(0, 0, 0, .65);
-    }
+       margin-bottom: 24px;
+       color: rgba(0, 0, 0, .65);
+   }
 
     .g2-card__fixed {
         position: absolute;
@@ -17,5 +17,60 @@
     .g2-card__chart-progressfixed {
         position: relative;
         bottom: -30px;
+    }
+
+    .salesRank {
+        padding: 0 32px 32px 72px;
+    }
+
+    .rankingList {
+        margin: 25px 0 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+
+            span {
+                color: rgba(0, 0, 0, .65);
+                font-size: 14px;
+                line-height: 22px;
+            }
+
+            .rankingItemNumber {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin-top: 1.5px;
+                margin-right: 16px;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 20px;
+                text-align: center;
+                // background-color: @background-color-base;
+                border-radius: 20px;
+
+                &.active {
+                    color: #fff;
+                    background-color: #314659;
+                }
+            }
+
+            .rankingItemTitle {
+                flex: 1;
+                margin-right: 8px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1199px) {
+    .salesRank {
+        margin-top: 16px;
     }
 }

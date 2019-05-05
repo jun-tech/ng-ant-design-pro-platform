@@ -90,24 +90,72 @@
     </div>
 </div>
 <nz-card [nzLoading]="loading2" [nzBordered]="false" [ngClass]="{'ant-card__body-nopadding':!loading}">
-    <nz-tabset nzSize="large" style="padding-left:16px;margin-bottom: 24px">
+    <nz-tabset nzSize="large" style="padding-left:16px;margin-bottom: 24px" (nzSelectChange)="saleTabChange">
         <nz-tab nzTitle="销售额">
             <!-- 图表 -->
             <div nz-row [nzGutter]="24">
                 <div nz-col nzXl="16" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
-                    <div style="padding-left:32px">
+                    <div style="padding:16px">
                         <h4><span>销售趋势</span></h4>
                         <g2-mini-bar axis="true" *ngIf="!loading2" height="254" borderWidth="40" [padding]="[32,32,32,50]" [data]="saleTrendData">
                         </g2-mini-bar>
                     </div>
                 </div>
                 <div nz-col nzXl="8" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
-                    右边
+                    <div class="salesRank">
+                        <h4><span>门店销售额排名</span></h4>
+                        <ul class="rankingList">
+                            <li><span class="rankingItemNumber active">1</span><span class="rankingItemTitle" title="工专路 0 号店">工专路 0
+                                    号店</span><span>323,234</span></li>
+                            <li><span class="rankingItemNumber active">2</span><span class="rankingItemTitle" title="工专路 1 号店">工专路 1
+                                    号店</span><span>323,234</span></li>
+                            <li><span class="rankingItemNumber active">3</span><span class="rankingItemTitle" title="工专路 2 号店">工专路 2
+                                    号店</span><span>323,234</span></li>
+                            <li><span class="rankingItemNumber ">4</span><span class="rankingItemTitle" title="工专路 3 号店">工专路 3
+                                    号店</span><span>323,234</span></li>
+                            <li><span class="rankingItemNumber ">5</span><span class="rankingItemTitle" title="工专路 4 号店">工专路 4
+                                    号店</span><span>323,234</span></li>
+                            <li><span class="rankingItemNumber ">6</span><span class="rankingItemTitle" title="工专路 5 号店">工专路 5
+                                    号店</span><span>323,234</span></li>
+                            <li><span class="rankingItemNumber ">7</span><span class="rankingItemTitle" title="工专路 6 号店">工专路 6
+                                    号店</span><span>323,234</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nz-tab>
         <nz-tab nzTitle="访问量">
-            Content of Tab Pane 2
+            <!-- 图表 -->
+            <div nz-row [nzGutter]="24">
+                <div nz-col nzXl="16" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+                    <div style="padding:16px;height: 254px;">
+                        <h4><span>访问量趋势</span></h4>
+                        <g2-mini-bar axis="true" *ngIf="!loading2" height="254" borderWidth="40" [padding]="[32,32,32,50]" [data]="saleTrendData">
+                        </g2-mini-bar>
+                    </div>
+                </div>
+                <div nz-col nzXl="8" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+                    <div class="salesRank">
+                        <h4><span>门店销售额排名</span></h4>
+                        <ul class="rankingList">
+                            <li><span class="rankingItemNumber active">1</span><span class="rankingItemTitle" title="工专路 0 号店">工专路 0
+                                    号店</span><span>323,234</span></li>
+                            <li><span class="rankingItemNumber active">2</span><span class="rankingItemTitle" title="工专路 1 号店">工专路 1
+                                    号店</span><span>323,234</span></li>
+                            <li><span class="rankingItemNumber active">3</span><span class="rankingItemTitle" title="工专路 2 号店">工专路 2
+                                    号店</span><span>323,234</span></li>
+                            <li><span class="rankingItemNumber ">4</span><span class="rankingItemTitle" title="工专路 3 号店">工专路 3
+                                    号店</span><span>323,234</span></li>
+                            <li><span class="rankingItemNumber ">5</span><span class="rankingItemTitle" title="工专路 4 号店">工专路 4
+                                    号店</span><span>323,234</span></li>
+                            <li><span class="rankingItemNumber ">6</span><span class="rankingItemTitle" title="工专路 5 号店">工专路 5
+                                    号店</span><span>323,234</span></li>
+                            <li><span class="rankingItemNumber ">7</span><span class="rankingItemTitle" title="工专路 6 号店">工专路 6
+                                    号店</span><span>323,234</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </nz-tab>
     </nz-tabset>
 </nz-card>

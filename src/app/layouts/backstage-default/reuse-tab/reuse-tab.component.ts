@@ -131,7 +131,7 @@ export class ReuseTabComponent {
     const tabItemWidth = 96;
     const tabMaxWidth = winWidth - this.sidebarWidth - sidebarCollapsedWidth - headerWidth - 2; // 这里扣多2像素，貌似有些浏览器有问题
     this.tabRealWidth = tabMaxWidth - menuDrapDownWidth; // tab的实际容器宽度
-    this.hst.nativeElement.style.width = tabMaxWidth + 'px'; // 重设宿主组件的宽度
+    // this.hst.nativeElement.style.width = tabMaxWidth + 'px'; // 重设宿主组件的宽度
     this.changeTabSize.emit(tabMaxWidth); // 向外发送计算好的值事件
     // 重新显示tab
     const tabMaxNum = Math.floor(this.tabRealWidth / tabItemWidth);
