@@ -25,7 +25,7 @@ export class G2MiniBarComponent implements OnInit, OnChanges, OnDestroy {
   @Input() delay = 0;
   @Input() color = '#1890FF';
   @Input() @HostBinding('style.height.px') height = 56;
-  @Input() borderWidth = 5; // 柱形图宽度
+  @Input() barWidth = 5; // 柱形图宽度
   @Input() padding: Array<string | number> = [8, 8, 8, 8];
   @Input() data: G2MiniBarData[] = [];
   @Input() yTooltipSuffix = '';
@@ -74,11 +74,11 @@ export class G2MiniBarComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private attachChart() {
-    const { chart, height, padding, data, color, borderWidth } = this;
+    const { chart, height, padding, data, color, barWidth } = this;
     if (!chart || !data || data.length <= 0) { return; }
     chart
       .get('geoms')[0]
-      .size(borderWidth)
+      .size(barWidth)
       .color(color);
     chart.set('height', height);
     chart.set('padding', padding);

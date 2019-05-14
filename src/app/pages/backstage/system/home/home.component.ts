@@ -45,7 +45,6 @@ export class HomeComponent implements OnInit {
   }
 
   saleTabChange(nzSelectedIndex: number, tab: NzTabComponent) {
-    debugger
     this.cdr.detectChanges();
   }
 

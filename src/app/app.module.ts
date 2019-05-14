@@ -17,6 +17,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { FooterComponent } from './layouts/backstage-default/footer/footer.component';
 import { AppReuseStrategy } from './services/core/app-reuse-strategy';
 import { SharedCoreModule } from './services/core/shared-core-module';
+import { ComponentCoreModule } from './components/component-core.module';
 
 registerLocaleData(en);
 
@@ -41,6 +42,7 @@ const LAYOUT_COMPONENT = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ComponentCoreModule.forRoot(),
     SharedCoreModule.forRoot()
   ],
   providers: [

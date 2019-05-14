@@ -5,6 +5,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LocalStorageService } from 'src/app/services/core/local-storage.service';
+import { ComponentCoreModule } from 'src/app/components/component-core.module';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { LocalStorageService } from 'src/app/services/core/local-storage.service
     FormsModule,
     HttpClientModule,
     NgZorroAntdModule,
+    ComponentCoreModule,
     FrontStageRoutingModule
   ],
   declarations: [],
