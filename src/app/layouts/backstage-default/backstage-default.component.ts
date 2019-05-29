@@ -55,16 +55,23 @@ export class BackstageDefaultComponent implements OnInit, AfterViewInit {
 
   doLayout(): void {
     // 重新布局
-    document.getElementById('__reuseTab').style.display = 'none'; // 主要解决左侧栏收缩完后，再处理事件触发，否则出现界面溢出错误现象
-    setTimeout(() => {
-      if (this.isCollapsed) {
-        this.sidebarWidth = 80;
-      } else {
-        this.sidebarWidth = 256;
-      }
-      this.reuseTab.tabResize(this.sidebarWidth);
-      document.getElementById('__reuseTab').style.display = '';
-    }, 200); // 这里的200毫秒指左侧栏收缩时间动画，表示收缩-展开后才触发重用
+    // document.getElementById('__reuseTab').style.display = 'none'; // 主要解决左侧栏收缩完后，再处理事件触发，否则出现界面溢出错误现象
+    // setTimeout(() => {
+    //   if (this.isCollapsed) {
+    //     this.sidebarWidth = 80;
+    //   } else {
+    //     this.sidebarWidth = 256;
+    //   }
+    //   this.reuseTab.tabResize(this.sidebarWidth);
+    //   document.getElementById('__reuseTab').style.display = '';
+    // }, 200); // 这里的200毫秒指左侧栏收缩时间动画，表示收缩-展开后才触发重用
+
+    this.reuseTab.tabResize(this.sidebarWidth);
+
+    // g2的bug
+    const e = document.createEvent('Event');
+    e.initEvent('resize', true, true);
+    window.dispatchEvent(e);
 
   }
 

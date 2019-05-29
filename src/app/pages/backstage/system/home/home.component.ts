@@ -18,6 +18,13 @@ export class HomeComponent implements OnInit {
   loading = true;
   loading2 = true;
 
+  /**
+   * 图表加载状态
+   */
+  chartLoading = {
+    saleTrendDelay: 0
+  };
+
   visitData = {};
 
   saleTrendData = {};
@@ -44,8 +51,14 @@ export class HomeComponent implements OnInit {
 
   }
 
-  saleTabChange(nzSelectedIndex: number, tab: NzTabComponent) {
-    this.cdr.detectChanges();
+  saleTabChange(event: any) {
+    let index = event.nzSelectedIndex;
+    let tab = event.tab;
+    this.chartLoading.saleTrendDelay = index;
+    // g2的bug
+    const e = document.createEvent('Event');
+    e.initEvent('resize', true, true);
+    window.dispatchEvent(e);
   }
 
 }
