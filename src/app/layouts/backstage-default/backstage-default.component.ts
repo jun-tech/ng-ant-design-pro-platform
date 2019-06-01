@@ -47,6 +47,10 @@ export class BackstageDefaultComponent implements OnInit, AfterViewInit {
     // 折叠
     this.isCollapsed = !this.isCollapsed;
     this.doLayout();
+    // G2 bug
+    const e = document.createEvent('Event');
+    e.initEvent('resize', true, true);
+    window.dispatchEvent(e);
   }
 
   tabSize(n: number): void {
@@ -67,11 +71,6 @@ export class BackstageDefaultComponent implements OnInit, AfterViewInit {
     // }, 200); // 这里的200毫秒指左侧栏收缩时间动画，表示收缩-展开后才触发重用
 
     this.reuseTab.tabResize(this.sidebarWidth);
-
-    // g2的bug
-    const e = document.createEvent('Event');
-    e.initEvent('resize', true, true);
-    window.dispatchEvent(e);
 
   }
 
