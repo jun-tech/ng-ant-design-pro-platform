@@ -8,6 +8,8 @@ export const PLATFORM = {
       'roles': ['role1', 'role2', 'role3']
     });
   },
+  'auth/logout': () => {
+  },
   'users': () => {
     Mock.mock({
       'x|1-50': [{

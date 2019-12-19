@@ -90,8 +90,11 @@ export class PlatformCoreService {
   /**
    * 退出
    */
-  logout(): void {
-
+  logout(callback: Function): void {
+    this.http.post('auth/logout', null).subscribe(res => {
+      this.store.clearAll();
+      callback.call(this);
+    });
   }
 
   /**

@@ -9,7 +9,7 @@ import { AppReuseStrategy } from 'src/app/services/core/app-reuse-strategy';
 @Component({
   selector: 'app-reuse-tab',
   templateUrl: './reuse-tab.component.html',
-  styleUrls: ['./reuse-tab.component.css']
+  styleUrls: ['./reuse-tab.component.less']
 })
 export class ReuseTabComponent {
 

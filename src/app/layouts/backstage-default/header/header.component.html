@@ -1,12 +1,28 @@
 <div>
     <span class="bst-header-icon">
-        <i nz-icon type="search" theme="outline"></i>
+        <i nz-icon nzType="search" nzTheme="outline"></i>
     </span>
-    <span class="bst-header-icon"><i nz-icon type="question-circle" theme="outline"></i></span>
+    <span class="bst-header-icon"><i nz-icon nzType="question-circle" nzTheme="outline"></i></span>
     <span class="bst-header-icon">
         <nz-badge [nzCount]="11" class="bst-badge">
-            <i nz-icon type="bell" theme="outline"></i>
+            <i nz-icon nzType="bell" nzTheme="outline"></i>
         </nz-badge>
     </span>
-    <span class="bst-header-icon"><i nz-icon type="user" theme="outline"></i></span>
+    <nz-dropdown>
+        <span class="bst-header-icon" nz-dropdown>
+          <i nz-icon nzType="user" nzTheme="outline"></i>
+        </span>
+        <ul nz-menu class="bst-header_usr_menu">
+            <li nz-menu-item>
+                <a><i nz-icon nzType="user" nzTheme="outline" class="bst-header_usr_menu_icon"></i><span>个人中心</span></a>
+            </li>
+            <li nz-menu-item>
+                <a><i nz-icon nzType="setting" nzTheme="outline" class="bst-header_usr_menu_icon"></i><span>个人设置</span></a>
+            </li>
+            <li nz-menu-divider></li>
+            <li nz-menu-item>
+                <a (click)="logout()"><i nz-icon nzType="logout" nzTheme="outline" class="bst-header_usr_menu_icon"></i><span>退出登录</span></a>
+            </li>
+        </ul>
+    </nz-dropdown>
 </div>
