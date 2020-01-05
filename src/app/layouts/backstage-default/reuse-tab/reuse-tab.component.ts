@@ -126,7 +126,7 @@ export class ReuseTabComponent {
     const winWidth = document.body.offsetWidth;
     this.sidebarWidth = sw !== undefined ? sw : 256;
     const sidebarCollapsedWidth = 68;
-    const headerWidth = 180;
+    const headerWidth = 270; // 头部限制宽度
     const menuDrapDownWidth = 38; // 折叠tab
     const tabItemWidth = 96;
     const tabMaxWidth = winWidth - this.sidebarWidth - sidebarCollapsedWidth - headerWidth - 2; // 这里扣多2像素，貌似有些浏览器有问题

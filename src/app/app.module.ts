@@ -33,7 +33,7 @@ const LAYOUT_COMPONENT = [
 @NgModule({
   declarations: [
     AppComponent,
-    ...LAYOUT_COMPONENT
+    LAYOUT_COMPONENT
   ],
   imports: [
     BrowserModule,
