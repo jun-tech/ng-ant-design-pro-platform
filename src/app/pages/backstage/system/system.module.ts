@@ -4,6 +4,7 @@ import { SystemRoutingModule } from './system-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { ComponentCoreModule } from 'src/app/components/component-core.module';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
@@ -13,6 +14,6 @@ import { ComponentCoreModule } from 'src/app/components/component-core.module';
     SystemRoutingModule,
     ComponentCoreModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, UsersComponent]
 })
 export class SystemModule { }
