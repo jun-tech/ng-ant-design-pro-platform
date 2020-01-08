@@ -7,12 +7,12 @@ const routes: Routes = [
   // 前台模块
   {
     path: 'frontstage',
-    loadChildren: './pages/frontstage/frontstage.module#FrontStageModule',
+    loadChildren: () => import('./pages/frontstage/frontstage.module').then(m => m.FrontStageModule),
   },
   // 帐户登录、注册、找回密码等界面
   {
     path: 'account',
-    loadChildren: './pages/account/account.module#AccountModule',
+    loadChildren: () => import('./pages/account/account.module').then(m => m.AccountModule),
   },
   // 后台模块
   {
@@ -23,13 +23,13 @@ const routes: Routes = [
       { path: '', redirectTo: 'system/home', pathMatch: 'full' },
       {
         path: 'examples',
-        loadChildren: './pages/backstage/examples/examples.module#ExamplesModule'
+        loadChildren: () => import('./pages/backstage/examples/examples.module').then(m => m.ExamplesModule)
       },
       {
         path: 'system',
-        loadChildren: './pages/backstage/system/system.module#SystemModule'
+        loadChildren: () => import('./pages/backstage/system/system.module').then(m => m.SystemModule)
       },
-      { path: 'exception', loadChildren: './pages/commons/exception/exception.module#ExceptionModule' },
+      { path: 'exception', loadChildren: () => import('./pages/commons/exception/exception.module').then(m => m.ExceptionModule) },
     ]
   },
   // Exception

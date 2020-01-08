@@ -14,8 +14,8 @@ export class BackstageDefaultComponent implements OnInit, AfterViewInit {
   sidebarWidth: any = 256; // 初始值
   tabWidth: any = 0;
 
-  @ViewChild('trigger') customTrigger: TemplateRef<void>;
-  @ViewChild('reuseTab') reuseTab: ReuseTabComponent;
+  @ViewChild('trigger', { static: true }) customTrigger: TemplateRef<void>;
+  @ViewChild('reuseTab', { static: true }) reuseTab: ReuseTabComponent;
 
   constructor(private hst: ElementRef) {
 
