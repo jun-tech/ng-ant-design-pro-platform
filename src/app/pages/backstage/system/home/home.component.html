@@ -1,161 +1,163 @@
-<div nz-row [nzGutter]="24">
-    <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
-        <g2-card [loading]="loading" [title]="title1" total="¥ 126,560" contentHeight="44px" [action]="action1" [footer]="footer1" contentClass="g2-card__fixed">
-            <ng-template #title1>
-                总销售额
-            </ng-template>
-            <ng-template #action1>
-                <nz-tooltip [nzTitle]="'指标说明'">
-                    <i nz-tooltip nz-icon type="info-circle"></i>
-                </nz-tooltip>
-            </ng-template>
-            <trend flag="up" style="margin-right: 16px;">
-                周同比
-                <span>12%</span>
-            </trend>
-            <trend flag="down">
-                日同比
-                <span>11%</span>
-            </trend>
-            <ng-template #footer1>
-                <p class="w-overhide">
-                    日销售额
-                    <span>￥12,423</span>
-                </p>
-            </ng-template>
-        </g2-card>
+<div class="home-content">
+    <div nz-row [nzGutter]="24">
+        <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
+            <g2-card [loading]="loading" [title]="title1" total="¥ 126,560" contentHeight="44px" [action]="action1" [footer]="footer1" contentClass="g2-card__fixed">
+                <ng-template #title1>
+                    总销售额
+                </ng-template>
+                <ng-template #action1>
+                    <nz-tooltip [nzTitle]="'指标说明'">
+                        <i nz-tooltip nz-icon type="info-circle"></i>
+                    </nz-tooltip>
+                </ng-template>
+                <trend flag="up" style="margin-right: 16px;">
+                    周同比
+                    <span>12%</span>
+                </trend>
+                <trend flag="down">
+                    日同比
+                    <span>11%</span>
+                </trend>
+                <ng-template #footer1>
+                    <p class="w-overhide">
+                        日销售额
+                        <span>￥12,423</span>
+                    </p>
+                </ng-template>
+            </g2-card>
+        </div>
+        <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
+            <g2-card [loading]="loading" [title]="title2" total="12,900" contentHeight="44px" [action]="action2" [footer]="footer2">
+                <ng-template #title2>
+                    访问量
+                </ng-template>
+                <ng-template #action2>
+                    <nz-tooltip [nzTitle]="'指标说明'">
+                        <i nz-tooltip nz-icon type="info-circle"></i>
+                    </nz-tooltip>
+                </ng-template>
+                <g2-mini-area *ngIf="visitData" color="#975FE4" height="46" [data]="visitData" class="g2-card__chartfixed"></g2-mini-area>
+                <ng-template #footer2>
+                    <p>
+                        日访问量
+                        <span>12,423</span>
+                    </p>
+                </ng-template>
+            </g2-card>
+        </div>
+        <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
+            <g2-card [loading]="loading" [title]="title3" total="¥ 126,560" contentHeight="44px" [action]="action3" [footer]="footer3">
+                <ng-template #title3>
+                    支付笔数
+                </ng-template>
+                <ng-template #action3>
+                    <nz-tooltip [nzTitle]="'指标说明'">
+                        <i nz-tooltip nz-icon type="info-circle"></i>
+                    </nz-tooltip>
+                </ng-template>
+                <g2-mini-bar *ngIf="visitData" height="46" [data]="visitData" class="g2-card__chartfixed"></g2-mini-bar>
+                <ng-template #footer3>
+                    <p class="w-overhide">
+                        转化率
+                        <span>80%</span>
+                    </p>
+                </ng-template>
+            </g2-card>
+        </div>
+        <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
+            <g2-card [loading]="loading" [title]="title4" total="{{totalSalePrecent}}%" contentHeight="44px" [action]="action4" [footer]="footer4">
+                <ng-template #title4>
+                    总销售额
+                </ng-template>
+                <ng-template #action4>
+                    <nz-tooltip [nzTitle]="'指标说明'">
+                        <i nz-tooltip nz-icon type="info-circle"></i>
+                    </nz-tooltip>
+                </ng-template>
+                <g2-mini-progress height="46" [percent]="totalSalePrecent" cls="g2-mini-progress g2-card__chart-progressfixed" strokeWidth="8" target="80" color="#13C2C2"></g2-mini-progress>
+                <ng-template #footer4>
+                    <p class="w-overhide">
+                        <trend flag="up" style="margin-right: 16px;">
+                            周同比
+                            <span>12%</span>
+                        </trend>
+                        <trend flag="down">
+                            日同比
+                            <span>11%</span>
+                        </trend>
+                    </p>
+                </ng-template>
+            </g2-card>
+        </div>
     </div>
-    <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
-        <g2-card [loading]="loading" [title]="title2" total="12,900" contentHeight="44px" [action]="action2" [footer]="footer2">
-            <ng-template #title2>
-                访问量
-            </ng-template>
-            <ng-template #action2>
-                <nz-tooltip [nzTitle]="'指标说明'">
-                    <i nz-tooltip nz-icon type="info-circle"></i>
-                </nz-tooltip>
-            </ng-template>
-            <g2-mini-area *ngIf="visitData" color="#975FE4" height="46" [data]="visitData" class="g2-card__chartfixed"></g2-mini-area>
-            <ng-template #footer2>
-                <p>
-                    日访问量
-                    <span>12,423</span>
-                </p>
-            </ng-template>
-        </g2-card>
-    </div>
-    <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
-        <g2-card [loading]="loading" [title]="title3" total="¥ 126,560" contentHeight="44px" [action]="action3" [footer]="footer3">
-            <ng-template #title3>
-                支付笔数
-            </ng-template>
-            <ng-template #action3>
-                <nz-tooltip [nzTitle]="'指标说明'">
-                    <i nz-tooltip nz-icon type="info-circle"></i>
-                </nz-tooltip>
-            </ng-template>
-            <g2-mini-bar *ngIf="visitData" height="46" [data]="visitData" class="g2-card__chartfixed"></g2-mini-bar>
-            <ng-template #footer3>
-                <p class="w-overhide">
-                    转化率
-                    <span>80%</span>
-                </p>
-            </ng-template>
-        </g2-card>
-    </div>
-    <div nz-col nzXs="24" nzSm="12" nzMd="12" nzLg="6">
-        <g2-card [loading]="loading" [title]="title4" total="{{totalSalePrecent}}%" contentHeight="44px" [action]="action4" [footer]="footer4">
-            <ng-template #title4>
-                总销售额
-            </ng-template>
-            <ng-template #action4>
-                <nz-tooltip [nzTitle]="'指标说明'">
-                    <i nz-tooltip nz-icon type="info-circle"></i>
-                </nz-tooltip>
-            </ng-template>
-            <g2-mini-progress height="46" [percent]="totalSalePrecent" cls="g2-mini-progress g2-card__chart-progressfixed" strokeWidth="8" target="80" color="#13C2C2"></g2-mini-progress>
-            <ng-template #footer4>
-                <p class="w-overhide">
-                    <trend flag="up" style="margin-right: 16px;">
-                        周同比
-                        <span>12%</span>
-                    </trend>
-                    <trend flag="down">
-                        日同比
-                        <span>11%</span>
-                    </trend>
-                </p>
-            </ng-template>
-        </g2-card>
-    </div>
+    <nz-card [nzLoading]="loading2" [nzBordered]="false" [ngClass]="{'ant-card__body-nopadding':!loading}">
+        <nz-tabset nzSize="large" style="padding-left:16px;margin-bottom: 24px" (nzSelectChange)="saleTabChange($event)">
+            <nz-tab nzTitle="销售额">
+                <!-- 图表 -->
+                <div nz-row [nzGutter]="24">
+                    <div nz-col nzXl="16" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+                        <div style="padding:16px">
+                            <h4><span>销售趋势</span></h4>
+                            <g2-mini-bar axis="true" *ngIf="!loading2" height="254" barWidth="40" [padding]="[32,32,32,50]" [data]="saleTrendData">
+                            </g2-mini-bar>
+                        </div>
+                    </div>
+                    <div nz-col nzXl="8" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+                        <div class="salesRank">
+                            <h4><span>门店销售额排名</span></h4>
+                            <ul class="rankingList">
+                                <li><span class="rankingItemNumber active">1</span><span class="rankingItemTitle" title="工专路 0 号店">工专路 0
+                                    号店</span><span>323,234</span></li>
+                                <li><span class="rankingItemNumber active">2</span><span class="rankingItemTitle" title="工专路 1 号店">工专路 1
+                                    号店</span><span>323,234</span></li>
+                                <li><span class="rankingItemNumber active">3</span><span class="rankingItemTitle" title="工专路 2 号店">工专路 2
+                                    号店</span><span>323,234</span></li>
+                                <li><span class="rankingItemNumber ">4</span><span class="rankingItemTitle" title="工专路 3 号店">工专路 3
+                                    号店</span><span>323,234</span></li>
+                                <li><span class="rankingItemNumber ">5</span><span class="rankingItemTitle" title="工专路 4 号店">工专路 4
+                                    号店</span><span>323,234</span></li>
+                                <li><span class="rankingItemNumber ">6</span><span class="rankingItemTitle" title="工专路 5 号店">工专路 5
+                                    号店</span><span>323,234</span></li>
+                                <li><span class="rankingItemNumber ">7</span><span class="rankingItemTitle" title="工专路 6 号店">工专路 6
+                                    号店</span><span>323,234</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nz-tab>
+            <nz-tab nzTitle="访问量">
+                <!-- 图表 -->
+                <div nz-row [nzGutter]="24">
+                    <div nz-col nzXl="16" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+                        <div style="padding:16px;">
+                            <h4><span>访问量趋势</span></h4>
+                            <g2-mini-bar axis="true" *ngIf="!loading2" height="254" barWidth="40" [padding]="[32,32,32,50]" [data]="saleTrendData">
+                            </g2-mini-bar>
+                        </div>
+                    </div>
+                    <div nz-col nzXl="8" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+                        <div class="salesRank">
+                            <h4><span>门店销售额排名</span></h4>
+                            <ul class="rankingList">
+                                <li><span class="rankingItemNumber active">1</span><span class="rankingItemTitle" title="工专路 0 号店">工专路 0
+                                    号店</span><span>323,234</span></li>
+                                <li><span class="rankingItemNumber active">2</span><span class="rankingItemTitle" title="工专路 1 号店">工专路 1
+                                    号店</span><span>323,234</span></li>
+                                <li><span class="rankingItemNumber active">3</span><span class="rankingItemTitle" title="工专路 2 号店">工专路 2
+                                    号店</span><span>323,234</span></li>
+                                <li><span class="rankingItemNumber ">4</span><span class="rankingItemTitle" title="工专路 3 号店">工专路 3
+                                    号店</span><span>323,234</span></li>
+                                <li><span class="rankingItemNumber ">5</span><span class="rankingItemTitle" title="工专路 4 号店">工专路 4
+                                    号店</span><span>323,234</span></li>
+                                <li><span class="rankingItemNumber ">6</span><span class="rankingItemTitle" title="工专路 5 号店">工专路 5
+                                    号店</span><span>323,234</span></li>
+                                <li><span class="rankingItemNumber ">7</span><span class="rankingItemTitle" title="工专路 6 号店">工专路 6
+                                    号店</span><span>323,234</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nz-tab>
+        </nz-tabset>
+    </nz-card>
 </div>
-<nz-card [nzLoading]="loading2" [nzBordered]="false" [ngClass]="{'ant-card__body-nopadding':!loading}">
-    <nz-tabset nzSize="large" style="padding-left:16px;margin-bottom: 24px" (nzSelectChange)="saleTabChange($event)">
-        <nz-tab nzTitle="销售额">
-            <!-- 图表 -->
-            <div nz-row [nzGutter]="24">
-                <div nz-col nzXl="16" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
-                    <div style="padding:16px">
-                        <h4><span>销售趋势</span></h4>
-                        <g2-mini-bar axis="true" *ngIf="!loading2" height="254" barWidth="40" [padding]="[32,32,32,50]" [data]="saleTrendData">
-                        </g2-mini-bar>
-                    </div>
-                </div>
-                <div nz-col nzXl="8" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
-                    <div class="salesRank">
-                        <h4><span>门店销售额排名</span></h4>
-                        <ul class="rankingList">
-                            <li><span class="rankingItemNumber active">1</span><span class="rankingItemTitle" title="工专路 0 号店">工专路 0
-                                    号店</span><span>323,234</span></li>
-                            <li><span class="rankingItemNumber active">2</span><span class="rankingItemTitle" title="工专路 1 号店">工专路 1
-                                    号店</span><span>323,234</span></li>
-                            <li><span class="rankingItemNumber active">3</span><span class="rankingItemTitle" title="工专路 2 号店">工专路 2
-                                    号店</span><span>323,234</span></li>
-                            <li><span class="rankingItemNumber ">4</span><span class="rankingItemTitle" title="工专路 3 号店">工专路 3
-                                    号店</span><span>323,234</span></li>
-                            <li><span class="rankingItemNumber ">5</span><span class="rankingItemTitle" title="工专路 4 号店">工专路 4
-                                    号店</span><span>323,234</span></li>
-                            <li><span class="rankingItemNumber ">6</span><span class="rankingItemTitle" title="工专路 5 号店">工专路 5
-                                    号店</span><span>323,234</span></li>
-                            <li><span class="rankingItemNumber ">7</span><span class="rankingItemTitle" title="工专路 6 号店">工专路 6
-                                    号店</span><span>323,234</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nz-tab>
-        <nz-tab nzTitle="访问量">
-            <!-- 图表 -->
-            <div nz-row [nzGutter]="24">
-                <div nz-col nzXl="16" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
-                    <div style="padding:16px;">
-                        <h4><span>访问量趋势</span></h4>
-                        <g2-mini-bar axis="true" *ngIf="!loading2" height="254" barWidth="40" [padding]="[32,32,32,50]" [data]="saleTrendData">
-                        </g2-mini-bar>
-                    </div>
-                </div>
-                <div nz-col nzXl="8" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
-                    <div class="salesRank">
-                        <h4><span>门店销售额排名</span></h4>
-                        <ul class="rankingList">
-                            <li><span class="rankingItemNumber active">1</span><span class="rankingItemTitle" title="工专路 0 号店">工专路 0
-                                    号店</span><span>323,234</span></li>
-                            <li><span class="rankingItemNumber active">2</span><span class="rankingItemTitle" title="工专路 1 号店">工专路 1
-                                    号店</span><span>323,234</span></li>
-                            <li><span class="rankingItemNumber active">3</span><span class="rankingItemTitle" title="工专路 2 号店">工专路 2
-                                    号店</span><span>323,234</span></li>
-                            <li><span class="rankingItemNumber ">4</span><span class="rankingItemTitle" title="工专路 3 号店">工专路 3
-                                    号店</span><span>323,234</span></li>
-                            <li><span class="rankingItemNumber ">5</span><span class="rankingItemTitle" title="工专路 4 号店">工专路 4
-                                    号店</span><span>323,234</span></li>
-                            <li><span class="rankingItemNumber ">6</span><span class="rankingItemTitle" title="工专路 5 号店">工专路 5
-                                    号店</span><span>323,234</span></li>
-                            <li><span class="rankingItemNumber ">7</span><span class="rankingItemTitle" title="工专路 6 号店">工专路 6
-                                    号店</span><span>323,234</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nz-tab>
-    </nz-tabset>
-</nz-card>

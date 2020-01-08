@@ -10,7 +10,7 @@ export class RouterGuardService implements CanActivate {
     private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const token = this.store.get('token');
+      const token = this.store.get('x-access-token');
     if (!token) {
       this.router.navigateByUrl('/account/login');
       return false;

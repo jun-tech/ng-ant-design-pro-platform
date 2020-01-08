@@ -5,7 +5,17 @@ body {
 .bst-header {
     background: #fff;
     padding: 0;
+    z-index: 9;
     box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+}
+
+.bst-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.bst-footer {
+    text-align: center;
 }
 
 .bst-header-item {
@@ -20,7 +30,7 @@ body {
 }
 
 .bst-menu-trigger {
-    font-size: 20px!important;
+    font-size: 20px !important;
     line-height: 64px;
     padding: 0 24px;
     cursor: pointer;

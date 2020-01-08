@@ -41,8 +41,11 @@ export class HttpInterceptorService implements HttpInterceptor {
         break;
       case 401: // 未登录状态码
         // (this.injector.get(DA_SERVICE_TOKEN) as ITokenService).clear();
-        this.goTo('/passport/login');
-        break;
+        // 移除已失效的token
+        const ls = this.injector.get(LocalStorageService);
+        ls.remove('x-access-token');
+        // 跳转登录页
+        this.goTo('/');
       case 403:
       case 404:
       case 500:
