@@ -81,7 +81,7 @@ export class PlatformCoreService {
         sr.errorMsg = '帐号或密码错误';
         return;
       }
-      const token = res['x-access-token'];
+      const token = res['token'];
       this.store.set('x-access-token', token);
       callback.call(this, sr);
     });
