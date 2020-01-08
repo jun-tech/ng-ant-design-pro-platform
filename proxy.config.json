@@ -1,0 +1,11 @@
+{
+    "/api": {
+        "target_run": "http://testweb:7017",
+        "target": "http://localhost:8081",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": "/myapi"
+        }
+    }
+}
