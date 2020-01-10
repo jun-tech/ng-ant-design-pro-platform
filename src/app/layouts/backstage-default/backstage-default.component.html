@@ -4,7 +4,7 @@
     </nz-sider>
     <nz-layout>
         <nz-header class="bst-header bst-header-item1">
-            <i class="bst-menu-trigger" nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" (click)="collapsedTrigger()"></i>
+            <i class="bst-menu-trigger" nz-icon [nzType]="isCollapsed?'menu-unfold':'menu-fold'" (click)="collapsedTrigger()"></i>
             <app-reuse-tab style="float:left;" #reuseTab id="__reuseTab" (changeTabSize)="tabSize($event)"></app-reuse-tab>
             <app-header style="float:right;width:270px;"></app-header>
         </nz-header>
@@ -17,5 +17,5 @@
     </nz-layout>
 </nz-layout>
 <ng-template #trigger>
-    <i nz-icon type="up"></i>
+    <i nz-icon nzType="up"></i>
 </ng-template>

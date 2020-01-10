@@ -43,7 +43,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         // (this.injector.get(DA_SERVICE_TOKEN) as ITokenService).clear();
         // 移除已失效的token
         const ls = this.injector.get(LocalStorageService);
-        ls.remove('x-access-token');
+        ls.clearAll();
         // 跳转登录页
         this.goTo('/');
       case 403:
