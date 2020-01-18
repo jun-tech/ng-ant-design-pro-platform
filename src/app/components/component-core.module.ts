@@ -4,6 +4,7 @@ import { G2MiniAreaModule } from './g2-mini-area/g2-mini-area.module';
 import { G2MiniBarModule } from './g2-mini-bar/g2-mini-bar.module';
 import { G2MiniProgressModule } from './g2-mini-progress/g2-mini-progress.module';
 import { TrendModule } from './trend/trend.module';
+import { ContentDefaultModule } from './content-default/content-default.module';
 
 const COMPONENTS_CORE = [
   G2CardModule,

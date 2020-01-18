@@ -1,0 +1,49 @@
+body {
+    min-width: 900px;
+}
+
+.bst-header {
+    background: #fff;
+    padding: 0;
+    z-index: 9;
+    box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+}
+
+.bst-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.bst-footer {
+    text-align: center;
+}
+
+.bst-header-item {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 12px;
+    position: relative;
+    transition: all .3s;
+    height: 64px;
+}
+
+.bst-menu-trigger {
+    font-size: 20px !important;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    float: left;
+}
+
+.bst-menu-trigger:hover {
+    background-color: rgba(0, 0, 0, .025);
+}
+
+.bst-sider-menu {
+    min-height: 100vh;
+    // box-shadow: 2px 0 6px rgba(0, 21, 41, .35);
+    position: relative;
+    z-index: 10;
+}

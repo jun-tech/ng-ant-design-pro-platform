@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   username = 'admin';
   password = '123456';
 
+  loginError = '';
+
   constructor(
     private router: Router,
     private titleService: Title,
@@ -25,9 +27,11 @@ export class LoginComponent implements OnInit {
 
   submitForm(): void {
     const { router } = this;
-    this.platformCoreService.login(function (sr: ServiceResult) {
+    this.platformCoreService.login((sr: ServiceResult) => {
       if (sr.errorCode === 0) {
         router.navigateByUrl('/system/home');
+      } else {
+        this.loginError = sr.errorMsg;
       }
     }, this.username, this.password, null);
   }

@@ -5,27 +5,32 @@
         <h1>Ant Design Pro</h1>
     </a>
 </div>
-
-<ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
-    <ng-template ngFor let-menuItem [ngForOf]="menuResource" let-i="index">
-        <li nz-submenu *ngIf="menuItem.children.length > 0">
-            <!-- <li nz-submenu *ngIf="menuItem.children.length > 0" [nzOpen]="isOpen(menuItem.children)"> -->
-            <span title><i nz-icon nzType="{{menuItem.icon}}" theme="outline"></i><span class="nav-text">{{menuItem.label}}</span></span>
-            <ul *ngFor="let menuItem of menuItem.children;">
-                <li *ngIf="!menuItem.isGroup" nz-menu-item routerLink="{{menuItem.module}}" [nzSelected]="isSelected(menuItem.module)">
-                    {{menuItem.label}}
-                </li>
-                <li nz-submenu nzTitle="{{menuItem.label}}" *ngIf="menuItem.isGroup">
-                    <ul *ngFor="let menuItem of menuItem.children;">
-                        <li nz-menu-item routerLink="{{menuItem.module}}" [nzSelected]="isSelected(menuItem.module)">
-                            {{menuItem.label}}
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li nz-menu-item *ngIf="menuItem.children.length === 0" routerLink="{{menuItem.module}}" [nzSelected]="isSelected(menuItem.module)">
-            <span title><i nz-icon nzType="{{menuItem.icon}}" theme="outline"></i><span class="nav-text">{{menuItem.label}}</span></span>
-        </li>
-    </ng-template>
-</ul>
+<div class="bst-header-wrap">
+    <span class="bst-header-icon">
+        <i nz-icon nzType="search" nzTheme="outline"></i>
+    </span>
+    <span class="bst-header-icon"><i nz-icon nzType="question-circle" nzTheme="outline"></i></span>
+    <span class="bst-header-icon">
+        <nz-badge [nzCount]="11" class="bst-badge">
+            <i nz-icon nzType="bell" nzTheme="outline"></i>
+        </nz-badge>
+    </span>
+    <span class="bst-header-icon" nz-dropdown [nzDropdownMenu]="userSettingMenu">
+            <img src="assets/img/default_face.png" style="width: 24px;height: 24px;line-height: 24px;margin: 20px 8px 20px 0;vertical-align:top;">
+            <span style="font-size: 14px;">SuperBettle</span>
+    </span>
+    <nz-dropdown-menu #userSettingMenu="nzDropdownMenu">
+        <ul nz-menu class="bst-header_usr_menu">
+            <li nz-menu-item>
+                <a><i nz-icon nzType="user" nzTheme="outline" class="bst-header_usr_menu_icon"></i><span>个人中心</span></a>
+            </li>
+            <li nz-menu-item>
+                <a><i nz-icon nzType="setting" nzTheme="outline" class="bst-header_usr_menu_icon"></i><span>个人设置</span></a>
+            </li>
+            <li nz-menu-divider></li>
+            <li nz-menu-item>
+                <a (click)="logout()"><i nz-icon nzType="logout" nzTheme="outline" class="bst-header_usr_menu_icon"></i><span>退出登录</span></a>
+            </li>
+        </ul>
+    </nz-dropdown-menu>
+</div>

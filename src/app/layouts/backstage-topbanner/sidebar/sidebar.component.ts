@@ -1,14 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MenuItem } from 'src/app/models/core/menuItem';
 import { PlatformCoreService } from 'src/app/services/platform/platform-core.service';
 import { Router } from '@angular/router';
-import { MenuItem } from 'src/app/models/core/menuItem';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.less']
 })
 export class SidebarComponent implements OnInit {
+
 
   @Input() isCollapsed: boolean;
 
@@ -38,4 +39,5 @@ export class SidebarComponent implements OnInit {
     const isOpen = foucusMenu != null ? true : false;
     return isOpen;
   }
+
 }

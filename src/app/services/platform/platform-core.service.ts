@@ -23,8 +23,7 @@ export class PlatformCoreService {
   /**
    * 获取菜单
    */
-  getMenuResource(): Array<MenuItem> {
-    const tabItemList: Array<MenuItem> = [];
+  getMenuResource(tabItemList: Array<MenuItem>) {
     let tabItem = new MenuItem();
     tabItem.label = '工作桌面';
     tabItem.module = '/system/home';
@@ -59,7 +58,60 @@ export class PlatformCoreService {
     tabItem.children.push(subTabItem);
     tabItemList.push(tabItem);
 
+    // 布局
+    tabItem = new MenuItem();
+    tabItem.label = '布局';
+    tabItem.icon = 'area-chart';
+    tabItem.isGroup = true;
+
+    subTabItem = new MenuItem();
+    subTabItem.label = '布局';
+    subTabItem.module = '/examples/layout';
+    tabItem.children.push(subTabItem);
+
+    subTabItem = new MenuItem();
+    subTabItem.label = '内容默认布局';
+    subTabItem.module = '/examples/layout/layout-content';
+    tabItem.children.push(subTabItem);
+    tabItemList.push(tabItem);
+
+
     return tabItemList;
+
+    // 下面是从接口获取数据后调用
+    // this.ws.resource().subscribe(res => {
+    //   const menus = res.data['children'];
+    //   this.buildMenu(tabItemList, menus);
+    // });
+  }
+
+
+  private buildMenu(tabItemList: Array<MenuItem>, menus: [{}]) {
+    for (let i = 0; i < menus.length; i++) {
+      const menu = menus[i];
+      const tabItem = new MenuItem();
+      tabItem.label = menu['title'];
+      tabItem.module = menu['url'];
+      tabItem.icon = menu['icon'];
+      tabItemList.push(tabItem);
+      if (menu['children'] && menu['children'].length > 0) {
+        tabItem.isGroup = true;
+        const menuSubs = menu['children'];
+        for (let j = 0; j < menuSubs.length; j++) {
+          const menuSub = menuSubs[j];
+          const tabItemSub = new MenuItem();
+          tabItemSub.label = menuSub['title'];
+          tabItemSub.module = menuSub['url'];
+          tabItemSub.icon = menuSub['icon'];
+          tabItem.children.push(tabItemSub);
+          // 子节点还有孩子，递归下级
+          if (menuSub['children'] && menuSub['children'].length > 0) {
+            tabItemSub.isGroup = true;
+            this.buildMenu(tabItemSub.children, menuSub['children']);
+          }
+        }
+      }
+    }
   }
 
   /**
@@ -79,6 +131,7 @@ export class PlatformCoreService {
       if (userName !== 'admin') {
         sr.errorCode = -1;
         sr.errorMsg = '帐号或密码错误';
+        callback.call(this, sr);
         return;
       }
       const token = res['token'];

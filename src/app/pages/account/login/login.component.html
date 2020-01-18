@@ -8,6 +8,9 @@
                 Ant Design Pro
             </h1>
         </div>
+        <!--错误提示-->
+        <nz-alert nzType="error" nzMessage="{{loginError}}" class="login-error" *ngIf="loginError!==''"></nz-alert>
+        <!--登录信息-->
         <input nz-input placeholder="请输入用户名" #usernameInput [(ngModel)]="username">
         <input class="password-input" nz-input type="password" placeholder="请输入密码" #passwordInput [(ngModel)]="password">
         <button nz-button [nzType]="'primary'" (click)="submitForm()" [disabled]="!usernameInput.value || !passwordInput.value">

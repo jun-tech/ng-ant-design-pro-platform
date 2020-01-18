@@ -6,6 +6,8 @@ import { ListSearchComponent } from './list/list-search/list-search.component';
 import { BasicListComponent } from './list/basic-list/basic-list.component';
 import { ChartPipeComponent } from './chart/chart-pipe/chart-pipe.component';
 import { ComponentCoreModule } from 'src/app/components/component-core.module';
+import { NzDemoLayoutSideComponent } from './layout/layout-side.component';
+import { LayoutContentComponent } from './layout/layout-content/layout-content.component';
 
 @NgModule({
   imports: [
@@ -14,6 +16,6 @@ import { ComponentCoreModule } from 'src/app/components/component-core.module';
     ComponentCoreModule,
     ExamplesRoutingModule
   ],
-  declarations: [ListSearchComponent, BasicListComponent, ChartPipeComponent]
+  declarations: [ListSearchComponent, BasicListComponent, ChartPipeComponent, NzDemoLayoutSideComponent, LayoutContentComponent]
 })
 export class ExamplesModule { }

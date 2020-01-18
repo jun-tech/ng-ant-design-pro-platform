@@ -1,0 +1,19 @@
+<nz-layout class="full-screen">
+    <nz-header style="background-color: #002140;padding:0">
+        <app-header></app-header>
+    </nz-header>
+    <!--
+        <app-reuse-tab style="float:left;" #reuseTab id="__reuseTab" (changeTabSize)="tabSize($event)"></app-reuse-tab>
+    -->
+    <nz-layout>
+        <nz-sider nzCollapsible nzTheme='light' [nzWidth]="sidebarWidth" class="bst-sider-menu" [(nzCollapsed)]="isCollapsed" id="__siderbar">
+            <app-sidebar [(isCollapsed)]="isCollapsed"></app-sidebar>
+        </nz-sider>
+        <nz-content class="bst-content">
+            <router-outlet></router-outlet>
+        </nz-content>
+    </nz-layout>
+    <!-- <nz-footer class="bst-footer">
+        <app-footer></app-footer>
+    </nz-footer> -->
+</nz-layout>

@@ -10,25 +10,37 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData, CommonModule } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { BackstageDefaultComponent } from './layouts/backstage-default/backstage-default.component';
-import { HeaderComponent } from './layouts/backstage-default/header/header.component';
-import { SidebarComponent } from './layouts/backstage-default/sidebar/sidebar.component';
-import { ReuseTabComponent } from './layouts/backstage-default/reuse-tab/reuse-tab.component';
 import { RouteReuseStrategy } from '@angular/router';
-import { FooterComponent } from './layouts/backstage-default/footer/footer.component';
 import { AppReuseStrategy } from './services/core/app-reuse-strategy';
 import { SharedCoreModule } from './services/core/shared-core-module';
 import { ComponentCoreModule } from './components/component-core.module';
+import { BackstageTopbannerComponent } from './layouts/backstage-topbanner/backstage-topbanner.component';
+import { HeaderComponent } from './layouts/backstage-topbanner/header/header.component';
+import { SidebarComponent } from './layouts/backstage-topbanner/sidebar/sidebar.component';
+import { FooterComponent } from './layouts/backstage-topbanner/footer/footer.component';
 
 registerLocaleData(en);
 
 // 布局组件
+
+// 默认布局
+// const LAYOUT_COMPONENT = [
+//   BackstageDefaultComponent,
+//   HeaderComponent,
+//   SidebarComponent,
+//   ReuseTabComponent,
+//   FooterComponent,
+// ];
+
+// 版头在上布局
 const LAYOUT_COMPONENT = [
-  BackstageDefaultComponent,
+  BackstageTopbannerComponent,
   HeaderComponent,
   SidebarComponent,
-  ReuseTabComponent,
+  // ReuseTabComponent,
   FooterComponent,
 ];
+
 
 @NgModule({
   declarations: [
