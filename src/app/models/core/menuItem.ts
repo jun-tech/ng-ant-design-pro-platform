@@ -9,4 +9,6 @@ export class MenuItem {
     isGroup?: boolean;
 
     icon: string;
+
+    isOpen = false;
 }

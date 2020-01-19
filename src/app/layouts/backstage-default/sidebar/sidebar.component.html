@@ -8,14 +8,14 @@
 
 <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
     <ng-template ngFor let-menuItem [ngForOf]="menuResource" let-i="index">
-        <li nz-submenu *ngIf="menuItem.children.length > 0">
+        <li nz-submenu *ngIf="menuItem.children.length > 0" [nzOpen]="menuItem.isOpen">
             <!-- <li nz-submenu *ngIf="menuItem.children.length > 0" [nzOpen]="isOpen(menuItem.children)"> -->
             <span title><i nz-icon nzType="{{menuItem.icon}}" theme="outline"></i><span class="nav-text">{{menuItem.label}}</span></span>
             <ul *ngFor="let menuItem of menuItem.children;">
                 <li *ngIf="!menuItem.isGroup" nz-menu-item routerLink="{{menuItem.module}}" [nzSelected]="isSelected(menuItem.module)">
                     {{menuItem.label}}
                 </li>
-                <li nz-submenu nzTitle="{{menuItem.label}}" *ngIf="menuItem.isGroup">
+                <li nz-submenu nzTitle="{{menuItem.label}}" *ngIf="menuItem.isGroup" [nzOpen]="menuItem.isOpen">
                     <ul *ngFor="let menuItem of menuItem.children;">
                         <li nz-menu-item routerLink="{{menuItem.module}}" [nzSelected]="isSelected(menuItem.module)">
                             {{menuItem.label}}

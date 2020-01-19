@@ -51,6 +51,7 @@ export class PlatformCoreService {
     tabItem.label = '常用统计';
     tabItem.icon = 'area-chart';
     tabItem.isGroup = true;
+    tabItem.isOpen = true;
 
     subTabItem = new MenuItem();
     subTabItem.label = '饼图';
@@ -96,6 +97,7 @@ export class PlatformCoreService {
       tabItemList.push(tabItem);
       if (menu['children'] && menu['children'].length > 0) {
         tabItem.isGroup = true;
+        tabItem.isOpen = menu['expanded'];
         const menuSubs = menu['children'];
         for (let j = 0; j < menuSubs.length; j++) {
           const menuSub = menuSubs[j];
@@ -107,6 +109,7 @@ export class PlatformCoreService {
           // 子节点还有孩子，递归下级
           if (menuSub['children'] && menuSub['children'].length > 0) {
             tabItemSub.isGroup = true;
+            tabItemSub.isOpen = menuSub['expanded'];
             this.buildMenu(tabItemSub.children, menuSub['children']);
           }
         }
