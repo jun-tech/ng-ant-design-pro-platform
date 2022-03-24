@@ -16,6 +16,9 @@
 
 4、ant-design-pro、ng-alain
 
+## 预览
+https://superbeetle.github.io/ng-ant-design-pro-platform/
+
 ## 作者寄语
 1、为提升框架的易用性，框架难免很多不足之处，欢迎广大使用者提出宝贵的意见，作者将长期对使用者提出的需求采纳并完善。使用者可直接把需求提交到GitHub
 
