@@ -2,8 +2,6 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { fromEvent, forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { delay } from 'rxjs/operators';
-import { NzTabComponent } from 'ng-zorro-antd';
-import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
 
 declare var G2: any;
 
@@ -25,9 +23,9 @@ export class HomeComponent implements OnInit {
     saleTrendDelay: 0
   };
 
-  visitData = {};
+  visitData: any = {};
 
-  saleTrendData = {};
+  saleTrendData: any = {};
 
   totalSalePrecent = 0;
 

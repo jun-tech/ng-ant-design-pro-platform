@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { PlatformCoreService } from 'src/app/services/platform/platform-core.service';
 import { Router } from '@angular/router';
 import { MenuItem } from 'src/app/models/core/menuItem';
@@ -11,6 +11,7 @@ import { MenuItem } from 'src/app/models/core/menuItem';
 export class SidebarComponent implements OnInit {
 
   @Input() isCollapsed: boolean;
+  @Output() isCollapsedChange = new EventEmitter<boolean>();
 
   isShow: boolean;
 

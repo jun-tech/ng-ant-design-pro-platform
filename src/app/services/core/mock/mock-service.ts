@@ -3,7 +3,7 @@ import { MockConfig } from './mock-config';
 
 @Injectable()
 export class MockService {
-    private _config = null;
+    private _config: MockConfig;
     private cached = {};
 
     constructor(@Optional() config: MockConfig) {

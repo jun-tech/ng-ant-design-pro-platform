@@ -33,6 +33,6 @@ export class LoginComponent implements OnInit {
       } else {
         this.loginError = sr.errorMsg;
       }
-    }, this.username, this.password, null);
+    }, this.username, this.password, '');
   }
 }

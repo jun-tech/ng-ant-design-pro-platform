@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RouterGuardService } from './services/core/router-guard.service';
-import { BackstageTopbannerComponent } from './layouts/backstage-topbanner/backstage-topbanner.component';
+// 选择布局组件
+// import { BackstageTopbannerComponent as BackstageLayoutComponent} from './layouts/backstage-topbanner/backstage-topbanner.component';
+import { BackstageDefaultComponent as BackstageLayoutComponent } from './layouts/backstage-default/backstage-default.component';
 
 const routes: Routes = [
   // 前台模块
@@ -17,7 +19,7 @@ const routes: Routes = [
   // 后台模块
   {
     path: '',
-    component: BackstageTopbannerComponent,
+    component: BackstageLayoutComponent,
     canActivate: [RouterGuardService],
     children: [
       { path: '', redirectTo: 'system/home', pathMatch: 'full' },

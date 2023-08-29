@@ -1,4 +1,4 @@
-import * as Mock from 'mockjs';
+import Mock from 'mockjs';
 
 export const PLATFORM = {
   'auth/login': () => {

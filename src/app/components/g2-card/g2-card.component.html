@@ -2,16 +2,16 @@
     <nz-spin [nzSpinning]="loading">
         <div class="g2-card__top">
             <div class="g2-card__avatar">
-                <ng-container *ngTemplateOutlet="avatar">{{avatar}}</ng-container>
+                <!-- <ng-container *ngTemplateOutlet="tmp;context:{$implicit: avatar}"></ng-container> -->
             </div>
             <div class="g2-card__meta-wrap">
                 <div class="g2-card__meta">
                     <span class="g2-card__meta-title" *ngIf="title">
-              <ng-container *ngTemplateOutlet="title">{{title}}</ng-container>
-            </span>
+                        <ng-container *ngTemplateOutlet="title"></ng-container>
+                    </span>
                     <span class="g2-card__meta-action" *ngIf="action">
-              <ng-container *ngTemplateOutlet="action">{{action}}</ng-container>
-            </span>
+                        <ng-container *ngTemplateOutlet="action"></ng-container>
+                    </span>
                 </div>
                 <p *ngIf="total" class="g2-card__total" [innerHTML]="total"></p>
             </div>
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="g2-card__footer" *ngIf="footer">
-            <ng-container *ngTemplateOutlet="footer">{{footer}}</ng-container>
+            <ng-container *ngTemplateOutlet="footer"></ng-container>
         </div>
     </nz-spin>
 </nz-card>

@@ -40,7 +40,7 @@ export class SharedCoreModule {
     }
   }
 
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<SharedCoreModule> {
     return {
       ngModule: SharedCoreModule,
       providers: [...GUARD_SERVICE_PROVIDES, ...INTERCEPTOR_SERVICE_PROVIDES],

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
-import { InputBoolean } from 'ng-zorro-antd';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -15,11 +14,11 @@ import { InputBoolean } from 'ng-zorro-antd';
 })
 export class TrendComponent {
 
- /** 上升下降标识 */
- @Input() flag: 'up' | 'down';
- /** 是否彩色标记 */
- @Input() @InputBoolean() colorful = true;
- /** 颜色反转 */
- @Input() @InputBoolean() reverseColor = false;
+  /** 上升下降标识 */
+  @Input() flag: 'up' | 'down';
+  /** 是否彩色标记 */
+  @Input() colorful: boolean = true;
+  /** 颜色反转 */
+  @Input() reverseColor: boolean = false;
 
 }

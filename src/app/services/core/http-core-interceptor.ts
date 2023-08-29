@@ -46,6 +46,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         ls.clearAll();
         // 跳转登录页
         this.goTo('/');
+        break;
       case 403:
       case 404:
       case 500:

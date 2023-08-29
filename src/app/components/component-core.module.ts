@@ -18,7 +18,7 @@ const COMPONENTS_CORE = [
   imports: [...COMPONENTS_CORE]
 })
 export class ComponentCoreModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<ComponentCoreModule> {
     return {
       ngModule: ComponentCoreModule,
       providers: [],

@@ -10,7 +10,7 @@ import { fromEvent } from 'rxjs';
 export class BackstageDefaultComponent implements OnInit, AfterViewInit {
 
   isCollapsed = false;
-  triggerTemplate = null;
+  triggerTemplate: any = null;
   sidebarWidth: any = 256; // 初始值
   tabWidth: any = 0;
 

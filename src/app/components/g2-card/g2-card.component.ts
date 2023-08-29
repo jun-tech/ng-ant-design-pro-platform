@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, OnChanges, TemplateRef, ChangeDetectorRef } from '@angular/core';
-import { InputBoolean } from 'ng-zorro-antd';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -9,10 +8,10 @@ import { InputBoolean } from 'ng-zorro-antd';
 })
 export class G2CardComponent implements OnChanges {
   /** 是否显示边框 */
-  @Input() @InputBoolean() bordered = false;
-  @Input() avatar: string | TemplateRef<void>;
-  @Input() title: string | TemplateRef<void>;
-  @Input() action: string | TemplateRef<void>;
+  @Input() bordered = false;
+  @Input() avatar: TemplateRef<void>;
+  @Input() title: TemplateRef<void>;
+  @Input() action: TemplateRef<void>;
   @Input() total = '';
   @Input() contentClass = '';
   _height = 'auto';
@@ -22,11 +21,11 @@ export class G2CardComponent implements OnChanges {
     this._orgHeight = value;
     this._height = typeof value === 'number' ? (this._height = `${value}px`) : value;
   }
-  @Input() footer: string | TemplateRef<void>;
+  @Input() footer: TemplateRef<void>;
   /** 是否显示Loading */
-  @Input() @InputBoolean() loading = false;
+  @Input() loading = false;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnChanges(): void {
     this.cdr.detectChanges();

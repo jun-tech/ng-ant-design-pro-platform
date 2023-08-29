@@ -1,4 +1,4 @@
-import * as Mock from 'mockjs';
+import Mock from 'mockjs';
 
 export const CHARTS = {
     'charts/version': () => '1.0.0',
@@ -26,7 +26,7 @@ export const CHARTS_VISIDATA = {
             'data|12': [{
                 'x|+1': function () {
                     month++;
-                    return  month + '月';
+                    return month + '月';
                 },
                 'y': '@natural(10, 10000)'
             }],

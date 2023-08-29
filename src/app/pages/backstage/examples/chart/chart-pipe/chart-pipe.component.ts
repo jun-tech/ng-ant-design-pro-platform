@@ -18,7 +18,9 @@ export class ChartPipeComponent implements OnInit {
 
 
     this.http.post('charts/saleTrend', null).pipe(delay(2000)).subscribe(res => {
-      this.saleTrendData = res['data'];
+      // 使用类型断言将对象断言为具有 'name' 属性的类型
+      const resObj = (res as { data: Object });
+      this.saleTrendData = resObj.data;
       this.loading2 = false;
     });
   }

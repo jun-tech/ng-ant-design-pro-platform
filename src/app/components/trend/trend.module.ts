@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { TrendComponent } from './trend.component';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
@@ -8,6 +8,6 @@ import { CommonModule } from '@angular/common';
   exports: [
     TrendComponent
   ],
-  imports: [CommonModule, NgZorroAntdModule]
+  imports: [CommonModule, NzIconModule]
 })
 export class TrendModule { }

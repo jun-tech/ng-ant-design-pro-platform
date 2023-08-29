@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NzModalService } from 'ng-zorro-antd';
+import { NzModalService } from 'ng-zorro-antd/modal';
 import { Title } from '@angular/platform-browser';
 
 @Component({

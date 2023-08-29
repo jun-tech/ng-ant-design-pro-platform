@@ -6,7 +6,8 @@
         <app-reuse-tab style="float:left;" #reuseTab id="__reuseTab" (changeTabSize)="tabSize($event)"></app-reuse-tab>
     -->
     <nz-layout>
-        <nz-sider nzCollapsible nzTheme='light' [nzWidth]="sidebarWidth" class="bst-sider-menu" [(nzCollapsed)]="isCollapsed" id="__siderbar">
+        <nz-sider nzCollapsible nzTheme='light' [nzWidth]="sidebarWidth" class="bst-sider-menu"
+            [(nzCollapsed)]="isCollapsed" id="__siderbar">
             <app-sidebar [(isCollapsed)]="isCollapsed"></app-sidebar>
         </nz-sider>
         <nz-content class="bst-content">

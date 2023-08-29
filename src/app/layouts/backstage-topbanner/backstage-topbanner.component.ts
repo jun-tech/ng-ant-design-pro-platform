@@ -8,7 +8,6 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 export class BackstageTopbannerComponent implements OnInit {
 
   isCollapsed = false;
-  triggerTemplate = null;
   sidebarWidth: any = 256; // 初始值
   tabWidth: any = 0;
 

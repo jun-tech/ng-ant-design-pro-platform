@@ -17,7 +17,7 @@ export class MockModule {
     }
   }
 
-  static forRoot(config: MockConfig): ModuleWithProviders {
+  static forRoot(config: MockConfig): ModuleWithProviders<MockModule> {
     return {
       ngModule: MockModule,
       providers: [
@@ -28,7 +28,7 @@ export class MockModule {
     };
   }
 
-  static forChild(): ModuleWithProviders {
+  static forChild(): ModuleWithProviders<MockModule> {
     return {
       ngModule: MockModule,
       providers: [{ provide: HTTP_INTERCEPTORS, useClass: MockInterceptorService, multi: true }],

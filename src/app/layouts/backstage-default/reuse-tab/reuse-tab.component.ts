@@ -82,10 +82,10 @@ export class ReuseTabComponent {
       .subscribe(routeData => {
         // 路由data的标题
         const url = this.router.url;
-        this.titleService.setTitle(routeData.title); // 设置网页标题
+        this.titleService.setTitle(routeData['title']); // 设置网页标题
         const exitMenu = this.tabItemList.find(p => p.module === url);
         if (!exitMenu) { // 缓存路由不存在添加
-          this.tabItemList.push({ title: routeData.title, module: url, power: '', isSelect: true });
+          this.tabItemList.push({ title: routeData['title'], module: url, power: '', isSelect: true });
           this.tabResize(this.sidebarWidth);
         }
         // 设置选中
