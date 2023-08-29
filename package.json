@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open --proxy-config proxy.config.json --host 0.0.0.0",
-    "build": "ng build --prod --output-path docs --base-href /ng-ant-design-pro-platform/",
+    "build": "ng build --configuration production --output-path docs --base-href /ng-ant-design-pro-platform/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
